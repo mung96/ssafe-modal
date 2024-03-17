@@ -64,4 +64,5 @@ export const SearchButton = styled.div`
 
 export const CardBox = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;

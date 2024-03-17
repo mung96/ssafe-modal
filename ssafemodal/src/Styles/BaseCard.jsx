@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  max-width: 356px;
+  width: 356px;
   border: 1px solid #d4d4d4;
   border-radius: 8px;
   background-color: white;
-  margin-right: 20px;
+  margin: 0px 20px 20px 0px;
 `;
 
 export const CardHeader = styled.div`

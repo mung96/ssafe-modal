@@ -31,6 +31,10 @@ const MySpace = () => {
         <CardBox>
           <BaseCard></BaseCard>
           <BaseCard></BaseCard>
+          <BaseCard></BaseCard>
+          <BaseCard></BaseCard>
+          <BaseCard></BaseCard>
+          <BaseCard></BaseCard>
         </CardBox>
       </MySpaceContainer>
     </>
