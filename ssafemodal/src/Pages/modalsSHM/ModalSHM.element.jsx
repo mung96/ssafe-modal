@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LoginModalBlock = styled.div`
+export const ModalBlock = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100vh;
@@ -27,18 +27,6 @@ export const Modal = styled.div`
   transform: translate(-50%, -50%);
   border-radius: 10px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-
-  input {
-    width: 100%;
-    background-color: #f5f5f5;
-    border: none;
-    border-radius: 8px;
-    height: 30px;
-  }
-
-  button {
-    height: 20px;
-  }
 `;
 
 export const ModalHeader = styled.div`
@@ -54,5 +42,19 @@ export const ModalHeader = styled.div`
   span {
     color: orange;
     font-size: 14px;
+  }
+`;
+export const ModalMain = styled.div`
+  input {
+    width: 100%;
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+  }
+`;
+export const ModalFooter = styled.div`
+  button {
+    height: 20px;
   }
 `;

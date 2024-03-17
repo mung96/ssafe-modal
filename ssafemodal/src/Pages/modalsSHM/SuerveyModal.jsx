@@ -6,7 +6,7 @@ import {
   ModalMain,
 } from "./ModalSHM.element";
 
-export const LoginModalSHM = ({ setIsModalOpen }) => {
+export const SurveyModalSHM = ({ setIsModalOpen }) => {
   const clickOutside = () => {
     setIsModalOpen(false);
   };
@@ -14,12 +14,10 @@ export const LoginModalSHM = ({ setIsModalOpen }) => {
     <ModalBlock onClick={clickOutside}>
       <Modal>
         <ModalHeader>
-          <h2>닉네임을 입력하세요.</h2>
-          <span>닉네임은 최소 4글자 이상이어야 합니다.</span>
+          <h2>새로운 설문지를 작성합니다.</h2>
+          <span>새로운 설문지를 작성하기 위한 설정입니다.</span>
         </ModalHeader>
-        <ModalMain>
-          <input />
-        </ModalMain>
+        <ModalMain></ModalMain>
         <ModalFooter>
           <button>확인</button>
         </ModalFooter>
