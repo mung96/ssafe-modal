@@ -11,7 +11,8 @@ export const LoginModalSHM = ({ setIsModalOpen }) => {
     setIsModalOpen(false);
   };
   return (
-    <ModalBlock onClick={clickOutside}>
+    <>
+      <ModalBlock onClick={clickOutside}></ModalBlock>
       <Modal>
         <ModalHeader>
           <h2>닉네임을 입력하세요.</h2>
@@ -24,6 +25,6 @@ export const LoginModalSHM = ({ setIsModalOpen }) => {
           <button>확인</button>
         </ModalFooter>
       </Modal>
-    </ModalBlock>
+    </>
   );
 };

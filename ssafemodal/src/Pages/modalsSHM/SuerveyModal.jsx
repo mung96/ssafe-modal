@@ -11,7 +11,8 @@ export const SurveyModalSHM = ({ setIsModalOpen }) => {
     setIsModalOpen(false);
   };
   return (
-    <ModalBlock onClick={clickOutside}>
+    <>
+      <ModalBlock onClick={clickOutside}></ModalBlock>
       <Modal>
         <ModalHeader>
           <h2>새로운 설문지를 작성합니다.</h2>
@@ -22,6 +23,6 @@ export const SurveyModalSHM = ({ setIsModalOpen }) => {
           <button>확인</button>
         </ModalFooter>
       </Modal>
-    </ModalBlock>
+    </>
   );
 };
