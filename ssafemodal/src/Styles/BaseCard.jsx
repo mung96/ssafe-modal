@@ -18,6 +18,7 @@ export const CardHeader = styled.div`
 `;
 export const CardTitle = styled.div`
   font-size: 16px;
+  font-weight: bold;
   color: #525252;
 `;
 export const CardDate = styled.div`

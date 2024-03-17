@@ -48,11 +48,13 @@ export const SearchBox = styled.div`
   margin-bottom: 32px;
 `;
 
-export const SearchButton = styled.div`
+export const Button = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
-  padding: 8px 16px 8px 16px;
+  padding: 8px 20px 8px 20px;
+  margin-right: 10px;
   border-radius: 30px;
   border: 1px solid #e5e5e5;
   background-color: white;
@@ -60,6 +62,14 @@ export const SearchButton = styled.div`
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;
+`;
+
+export const SearchButton = styled(Button)`
+  min-width: 170px;
+`;
+
+export const OrderButton = styled(Button)`
+  min-width: 130px;
 `;
 
 export const CardBox = styled.div`
