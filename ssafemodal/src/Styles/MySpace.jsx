@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const MenuContainer = styled.div`
-  margin: 70px 10px 10px;
+  margin: 70px 10px 0px 10px;
+  padding: 0px 20px;
 `;
 
 export const TabContainer = styled.div`
@@ -34,15 +35,17 @@ export const WriteButton = styled.button`
 `;
 
 export const MySpaceContainer = styled.div`
-  margin: 10px;
+  width: 100%;
+  padding: 20px 30px;
   height: 100vh;
+  background-color: #f5f6f7;
 `;
 
 export const SearchBox = styled.div`
   height: 24px;
   display: flex;
   text-align; center;
-  margin: 16px 0px;
+  margin-bottom: 32px;
 `;
 
 export const SearchButton = styled.div`
@@ -59,9 +62,6 @@ export const SearchButton = styled.div`
   cursor: pointer;
 `;
 
-export const CardBox = styled.div``;
-
-export const Card = styled.div`
-  background-color: white;
-  border: 1px solid #e5e5e5;
+export const CardBox = styled.div`
+  display: flex;
 `;
