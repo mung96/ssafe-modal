@@ -23,7 +23,7 @@ const MySpace = () => {
         <WriteButton>새 설문 만들기</WriteButton>
         <TabContainer>
           <TabButton>보관함</TabButton>
-          <TabButton>참여한 설문</TabButton>
+          <TabButton disabled={true}>참여한 설문</TabButton>
         </TabContainer>
       </MenuContainer>
       <MySpaceContainer>

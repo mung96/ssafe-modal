@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const MenuContainer = styled.div`
   margin: 70px 10px 0px 10px;
@@ -14,7 +14,12 @@ export const TabButton = styled.button`
   font-size: 14px;
   background-color: white;
   padding: 8px 24px;
-  border-width: 0 0 3px;
+  border: none;
+  ${(props) =>
+    !props.disabled &&
+    css`
+      border-bottom: 3px solid black;
+    `}
 `;
 
 export const WriteButton = styled.button`
