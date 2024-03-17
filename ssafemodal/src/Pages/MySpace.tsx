@@ -1,6 +1,6 @@
 import React from "react";
-import { WriteButton } from "../Styles/MySpace.jsx";
-import { Container, TextBoard } from "../Styles/Home.jsx";
+import { WriteButton } from "../Styles/MySpace";
+import { Container, TextBoard } from "../Styles/Home";
 
 const MySpace = () => {
   return (

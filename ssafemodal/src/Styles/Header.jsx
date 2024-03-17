@@ -31,5 +31,5 @@ export const Logo = styled.div`
   background-color: white;
   border-radius: 10px;
   text-decoration: none;
-  &: Link;
+  /* &: Link; */
 `;
