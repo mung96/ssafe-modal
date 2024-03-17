@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./Pages/Header.tsx";
+import BaseHeader from "./BaseComponents/BaseHeader.tsx";
 import Home from "./Pages/Home.tsx";
 import MySpace from "./Pages/MySpace.tsx";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <BaseHeader />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mySpace" element={<MySpace />} />
