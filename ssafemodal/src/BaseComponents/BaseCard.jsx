@@ -23,9 +23,9 @@ const BaseCard = () => {
           좋아하는 음식은 무엇일까요?
         </Question>
         <QuestionInfo>
-          문항수: 30개
+          <b>문항수</b>: 30개
           <br />
-          예상소요시간: 30분
+          <b>예상소요시간</b>: 30분
         </QuestionInfo>
         <CardTagBox>
           <CardTag>#빠른검사</CardTag>
