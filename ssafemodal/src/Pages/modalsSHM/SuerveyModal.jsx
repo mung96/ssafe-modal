@@ -5,6 +5,7 @@ import {
   ModalFooter,
   ModalMain,
 } from "./ModalSHM.element";
+import SurveyForm from "./SurveyForm";
 
 export const SurveyModalSHM = ({ setIsModalOpen }) => {
   const clickOutside = () => {
@@ -18,7 +19,9 @@ export const SurveyModalSHM = ({ setIsModalOpen }) => {
           <h2>새로운 설문지를 작성합니다.</h2>
           <span>새로운 설문지를 작성하기 위한 설정입니다.</span>
         </ModalHeader>
-        <ModalMain></ModalMain>
+        <ModalMain>
+          <SurveyForm />
+        </ModalMain>
         <ModalFooter>
           <button>확인</button>
         </ModalFooter>

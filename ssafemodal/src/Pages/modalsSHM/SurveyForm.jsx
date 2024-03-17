@@ -11,6 +11,9 @@ const SurveyForm = () => {
         <label htmlFor="title">설문지 내용을 입력하세요.</label>
         <textarea id="title" name="title" />
       </InputGroup>
+      <ul>
+        <button>태그없음</button>
+      </ul>
     </SurveyFormBlock>
   );
 };

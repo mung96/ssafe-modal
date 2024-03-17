@@ -16,7 +16,6 @@ export const Modal = styled.div`
   gap: 32px;
 
   width: 480px;
-  height: 230px;
 
   background-color: white;
   padding: 32px;
