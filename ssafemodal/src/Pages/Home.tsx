@@ -1,5 +1,5 @@
-import React from "react";
 import BaseHeader from "../BaseComponents/BaseHeader.tsx";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Container,
@@ -8,9 +8,16 @@ import {
   Title,
   Description,
   SignupButton,
-} from "../Styles/Home.jsx";
+} from "../Styles/Home";
+
+import { LoginModalSHM } from "./modalsSHM/LoginModalSHM";
 
 const Home = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleClickLoginBtn = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <>
       <BaseHeader HeaderLogo="폼나는싸패" />
@@ -33,10 +40,15 @@ const Home = () => {
         <Link to="/logIn">
           <SignupButton>로그인</SignupButton>
         </Link>
-        <Link to="/mySpace">
+  
+      <SignupButton onClick={handleClickLoginBtn}>로그인(현명)</SignupButton>
+
+      <Link to="/mySpace">
           <SignupButton>Move to MySpace</SignupButton>
         </Link>
-      </Container>
+  
+      {isModalOpen && <LoginModalSHM setIsModalOpen={setIsModalOpen} />}
+    </Container>
     </>
   );
 };

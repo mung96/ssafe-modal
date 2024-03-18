@@ -14,13 +14,19 @@ import {
 import BaseCard from "../BaseComponents/BaseCard.jsx";
 import { BiSolidSearch } from "react-icons/bi";
 import { IoCaretDownSharp } from "react-icons/io5";
+import { useState } from "react";
+import { SurveyModalSHM } from "./modalsSHM/SuerveyModal";
 
 const MySpace = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleClickWriteBtn = () => {
+    setIsModalOpen(true);
+  };
   return (
     <>
       <BaseHeader HeaderLogo="마이스페이스 👨‍💻" />
       <MenuContainer>
-        <WriteButton>새 설문 만들기</WriteButton>
+        <WriteButton onClick={handleClickWriteBtn}>새 설문 만들기</WriteButton>
         <TabContainer>
           <TabButton>보관함</TabButton>
           <TabButton disabled={true}>참여한 설문</TabButton>
@@ -45,8 +51,9 @@ const MySpace = () => {
           <BaseCard></BaseCard>
           <BaseCard></BaseCard>
         </CardBox>
+        {isModalOpen && <SurveyModalSHM setIsModalOpen={setIsModalOpen} />}
       </MySpaceContainer>
-    </>
+    </> 
   );
 };
 export default MySpace;
