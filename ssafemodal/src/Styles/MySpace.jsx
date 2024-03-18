@@ -49,7 +49,7 @@ export const MySpaceContainer = styled.div`
 export const SearchBox = styled.div`
   height: 24px;
   display: flex;
-  text-align; center;
+  text-align: center;
   margin-bottom: 32px;
 `;
 
