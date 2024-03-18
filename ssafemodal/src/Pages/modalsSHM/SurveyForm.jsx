@@ -1,6 +1,16 @@
-import { InputGroup, SurveyFormBlock } from "./SurveyForm.element";
+import { InputGroup, SurveyFormBlock, Tag, TagInput } from "./SurveyForm.element";
+import { useState } from "react";
 
 const SurveyForm = () => {
+  const [tagList,setTagList] = useState([]);
+
+
+  const handleTagAdd = (e) =>{
+    if(e.key==="Enter"){
+      setTagList([...tagList,e.target.value]);
+    }
+  }
+  console.log(tagList);
   return (
     <SurveyFormBlock>
       <InputGroup>
@@ -12,7 +22,8 @@ const SurveyForm = () => {
         <textarea id="title" name="title" />
       </InputGroup>
       <ul>
-        <button>태그없음</button>
+        {tagList.map((tag)=><Tag> {"#"+tag} </Tag>)}
+        <TagInput onKeyDown={handleTagAdd} placeholder="#태그입력"/>
       </ul>
     </SurveyFormBlock>
   );
