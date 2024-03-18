@@ -1,3 +1,4 @@
+import React from "react";
 import {
   ModalBlock,
   Modal,
@@ -6,15 +7,21 @@ import {
   ModalMain,
 } from "./ModalSHM.element";
 import SurveyForm from "./SurveyForm";
+import { useInput } from "../../hooks/useInput";
+import { useState } from "react";
 
-export const SurveyModalSHM = ({ setIsModalOpen }) => {
+export const SurveyModalSHM = ({ addCard, setIsModalOpen }) => {
+  const [title, handleTitleChange] = useInput();
+  const [body, handleBodyChange] = useInput();
+  const [tags, setTags] = useState([]);
+
   const clickOutside = () => {
     setIsModalOpen(false);
   };
 
-  const handleClickBtn = () =>{
-    
-  }
+  const handleClickBtn = () => {
+    addCard(title, body, tags);
+  };
   return (
     <>
       <ModalBlock onClick={clickOutside}></ModalBlock>
@@ -24,7 +31,12 @@ export const SurveyModalSHM = ({ setIsModalOpen }) => {
           <span>새로운 설문지를 작성하기 위한 설정입니다.</span>
         </ModalHeader>
         <ModalMain>
-          <SurveyForm />
+          <SurveyForm
+            handleTitleChange={handleTitleChange}
+            handleBodyChange={handleBodyChange}
+            tags={tags}
+            setTags={setTags}
+          />
         </ModalMain>
         <ModalFooter>
           <button onClick={handleClickBtn}>확인</button>

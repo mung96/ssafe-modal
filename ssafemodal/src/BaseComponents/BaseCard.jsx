@@ -7,11 +7,10 @@ import {
   Question,
   QuestionInfo,
   CardTagBox,
-  CardTag,
 } from "../Styles/BaseCard.jsx";
 import { Tag } from "../Pages/modalsSHM/SurveyForm.element.jsx";
 
-export const BaseCard = ({title, body,tag}) => {
+export const BaseCard = ({ title, body, tags }) => {
   return (
     <Card>
       <CardHeader>
@@ -26,12 +25,13 @@ export const BaseCard = ({title, body,tag}) => {
           <b>예상소요시간</b>: 30분
         </QuestionInfo>
         <CardTagBox>
-          <Tag>{tag}</Tag>
+          {tags.map((tag, idx) => (
+            <Tag key={idx}>{tag}</Tag>
+          ))}
         </CardTagBox>
       </CardContents>
     </Card>
   );
 };
-
 
 export default BaseCard;
