@@ -15,13 +15,14 @@ import BaseCard from "../BaseComponents/BaseCard.jsx";
 import { BiSolidSearch } from "react-icons/bi";
 import { IoCaretDownSharp } from "react-icons/io5";
 import { useState } from "react";
-import { SurveyModalSHM } from "./modalsSHM/SuerveyModal";
+import { SurveyModalSHM } from "./modalsSHM/SuerveyModal.jsx";
 
 const MySpace = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleClickWriteBtn = () => {
     setIsModalOpen(true);
   };
+  const [cards,setCards] = useState([]);
   return (
     <>
       <BaseHeader HeaderLogo="마이스페이스 👨‍💻" />
@@ -44,12 +45,11 @@ const MySpace = () => {
           </OrderButton>
         </SearchBox>
         <CardBox>
-          <BaseCard></BaseCard>
-          <BaseCard></BaseCard>
-          <BaseCard></BaseCard>
-          <BaseCard></BaseCard>
-          <BaseCard></BaseCard>
-          <BaseCard></BaseCard>
+          <BaseCard 
+          title="좋아하는 음식"
+          body="좋아하는 음식을 설문조사해서 맛있는 음식을 판매합니다. 사람들이 좋아하는 음식은 무엇일까요?" 
+          tag="안녕" 
+          />
         </CardBox>
         {isModalOpen && <SurveyModalSHM setIsModalOpen={setIsModalOpen} />}
       </MySpaceContainer>

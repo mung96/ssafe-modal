@@ -11,6 +11,10 @@ export const SurveyModalSHM = ({ setIsModalOpen }) => {
   const clickOutside = () => {
     setIsModalOpen(false);
   };
+
+  const handleClickBtn = () =>{
+    
+  }
   return (
     <>
       <ModalBlock onClick={clickOutside}></ModalBlock>
@@ -23,7 +27,7 @@ export const SurveyModalSHM = ({ setIsModalOpen }) => {
           <SurveyForm />
         </ModalMain>
         <ModalFooter>
-          <button>확인</button>
+          <button onClick={handleClickBtn}>확인</button>
         </ModalFooter>
       </Modal>
     </>

@@ -59,7 +59,7 @@ export const Tag = styled.li`
 
 export const TagInput = styled.input`
   display: inline-block;
-  width: 100px; 
+  /* width: 100px;  */
   height: 32px;
   padding: 0px 24px;
 

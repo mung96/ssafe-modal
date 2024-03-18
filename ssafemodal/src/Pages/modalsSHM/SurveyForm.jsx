@@ -10,7 +10,7 @@ const SurveyForm = () => {
       setTagList([...tagList,e.target.value]);
     }
   }
-  console.log(tagList);
+
   return (
     <SurveyFormBlock>
       <InputGroup>
@@ -18,11 +18,11 @@ const SurveyForm = () => {
         <input id="title" name="title" />
       </InputGroup>
       <InputGroup>
-        <label htmlFor="title">설문지 내용을 입력하세요.</label>
-        <textarea id="title" name="title" />
+        <label htmlFor="body">설문지 내용을 입력하세요.</label>
+        <textarea id="body" name="body" />
       </InputGroup>
       <ul>
-        {tagList.map((tag)=><Tag> {"#"+tag} </Tag>)}
+        {tagList.map((tag)=><Tag key={tag}> {"#"+tag} </Tag>)}
         <TagInput onKeyDown={handleTagAdd} placeholder="#태그입력"/>
       </ul>
     </SurveyFormBlock>
