@@ -18,7 +18,7 @@ import { IoCaretDownSharp } from "react-icons/io5";
 const MySpace = () => {
   return (
     <>
-      <BaseHeader HeaderLogo="마이스페이스 👨‍💻" />
+      <BaseHeader HeaderLogo="마이스페이스 👨‍💻" nickname={"현명"} />
       <MenuContainer>
         <WriteButton>새 설문 만들기</WriteButton>
         <TabContainer>
