@@ -15,7 +15,10 @@ import BaseCard from "../BaseComponents/BaseCard";
 import { BiSolidSearch } from "react-icons/bi";
 import { IoCaretDownSharp } from "react-icons/io5";
 import { useState } from "react";
-import { SurveyModalSHM } from "./modalsSHM/SuerveyModalSHM";
+import { Modal } from "./modalsSHM/Modal";
+import SurveyForm from "./modalsSHM/SurveyForm";
+import { SurveyModalSHM } from "./modalsSHM/SuerveyModal";
+
 interface Card {
   id: string;
   title: string;
@@ -78,6 +81,11 @@ const MySpace = () => {
           /> */}
         </CardBox>
         {isModalOpen && (
+          // <Modal
+          //   title="새로운 설문지를 작성합니다."
+          //   subTitle="새로운 설문지를 작성하기 위한 설정입니다."
+          //   form={
+          // />
           <SurveyModalSHM addCard={addCard} setIsModalOpen={setIsModalOpen} />
         )}
       </MySpaceContainer>

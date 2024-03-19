@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ModalBlock = styled.div`
+export const ModalBackground = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100vh;
@@ -10,7 +10,7 @@ export const ModalBlock = styled.div`
   left: 0;
 `;
 
-export const Modal = styled.div`
+export const ModalBlock = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;

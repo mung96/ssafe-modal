@@ -6,16 +6,20 @@ import {
 } from "./SurveyForm.element";
 import { KeyboardEvent } from "react";
 
-interface SurveyForm{
+interface SurveyForm {
   handleTitleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleBodyChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   tags: string[];
   setTags: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-
-const SurveyForm:React.FC<SurveyForm> = ({ handleTitleChange, handleBodyChange, tags, setTags }) => {
-  const handleTagAdd = (e:KeyboardEvent<HTMLInputElement>) => {
+const SurveyForm: React.FC<SurveyForm> = ({
+  handleTitleChange,
+  handleBodyChange,
+  tags,
+  setTags,
+}) => {
+  const handleTagAdd = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       setTags([...tags, (e.target as HTMLInputElement).value]);
     }
@@ -32,7 +36,7 @@ const SurveyForm:React.FC<SurveyForm> = ({ handleTitleChange, handleBodyChange, 
         <textarea id="body" name="body" onChange={handleBodyChange} />
       </InputGroup>
       <ul>
-        {tags?.map((tag:string, idx:number) => (
+        {tags?.map((tag: string, idx: number) => (
           <Tag key={idx}> {"#" + tag} </Tag>
         ))}
         <TagInput onKeyDown={handleTagAdd} placeholder="#태그입력" />

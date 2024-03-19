@@ -1,11 +1,11 @@
 import React, { ChangeEvent } from "react";
 import {
   ModalBlock,
-  Modal,
+  ModalBackground,
   ModalHeader,
   ModalFooter,
   ModalMain,
-} from "./ModalSHM.element";
+} from "./Modal.element";
 import SurveyForm from "./SurveyForm";
 import { useInput } from "../../hooks/useInput";
 import { useState } from "react";
@@ -43,8 +43,8 @@ export const SurveyModalSHM: React.FC<SurveyModal> = ({
   };
   return (
     <>
-      <ModalBlock onClick={clickOutside}></ModalBlock>
-      <Modal>
+      <ModalBackground onClick={clickOutside}></ModalBackground>
+      <ModalBlock>
         <ModalHeader>
           <h2>새로운 설문지를 작성합니다.</h2>
           <span>새로운 설문지를 작성하기 위한 설정입니다.</span>
@@ -60,7 +60,7 @@ export const SurveyModalSHM: React.FC<SurveyModal> = ({
         <ModalFooter>
           <button onClick={handleClickBtn}>확인</button>
         </ModalFooter>
-      </Modal>
+      </ModalBlock>
     </>
   );
 };

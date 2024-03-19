@@ -1,11 +1,11 @@
 import { NicknameConsumer } from "../contexts/NicknameContext";
 import {
   ModalBlock,
-  Modal,
+  ModalBackground,
   ModalHeader,
   ModalFooter,
   ModalMain,
-} from "./ModalSHM.element";
+} from "./Modal.element";
 import { useInput } from "../../hooks/useInput";
 import { useNavigate } from "react-router-dom";
 
@@ -27,8 +27,8 @@ export const LoginModalSHM: React.FC<Modal> = ({ setIsModalOpen }) => {
   const [nickname, changeNickname] = useInput();
   return (
     <>
-      <ModalBlock onClick={handleOutsideClick}></ModalBlock>
-      <Modal>
+      <ModalBackground onClick={handleOutsideClick}></ModalBackground>
+      <ModalBlock>
         <ModalHeader>
           <h2>닉네임을 입력하세요.</h2>
           <span>닉네임은 최소 4글자 이상이어야 합니다.</span>
@@ -40,19 +40,12 @@ export const LoginModalSHM: React.FC<Modal> = ({ setIsModalOpen }) => {
           <NicknameConsumer>
             {({ state, actions }) => {
               return (
-                <button
-                  onClick={() => handleCompleteBtn(actions)}
-                  // onClick={() => {
-                  //   actions.setNickname(nickname[0]);
-                  // }}
-                >
-                  확인
-                </button>
+                <button onClick={() => handleCompleteBtn(actions)}>확인</button>
               );
             }}
           </NicknameConsumer>
         </ModalFooter>
-      </Modal>
+      </ModalBlock>
     </>
   );
 };
