@@ -1,4 +1,4 @@
-import { NicknameConsumer} from "../contexts/NicknameContext";
+import { NicknameConsumer, NicknameProvider} from "../contexts/NicknameContext";
 import {
   ModalBlock,
   Modal,
@@ -30,12 +30,14 @@ export const LoginModalSHM:React.FC<Modal> = ({setIsModalOpen}) => {
         </ModalMain>
         <ModalFooter>
         <NicknameConsumer>{
-          ({actions})=>{
-            return <button onClick={() => {actions.setNickname(nickname)}}>확인</button>
-          }}
+          ({state,actions})=>{
+            return <button onClick={() => {actions.setNickname(nickname[0])}}>확인</button>}}
         </NicknameConsumer>
         </ModalFooter>
       </Modal>
     </>
   );
 };
+
+
+
