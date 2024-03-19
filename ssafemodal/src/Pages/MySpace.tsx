@@ -16,11 +16,12 @@ import { BiSolidSearch } from "react-icons/bi";
 import { IoCaretDownSharp } from "react-icons/io5";
 import { useState } from "react";
 import { SurveyModalSHM } from "./modalsSHM/SuerveyModalSHM";
-
 interface Card {
+  id: string;
   title: string;
   body: string;
   tags: string[];
+  date: Date;
 }
 
 const MySpace = () => {
@@ -29,17 +30,25 @@ const MySpace = () => {
     setIsModalOpen(true);
   };
   const [cards, setCards] = useState<Card[]>([]);
-  const addCard = (title: string, body: string, tags: string[]) => {
+  const addCard = (
+    id: string,
+    title: string,
+    body: string,
+    tags: string[],
+    date: Date
+  ) => {
     const newCard = {
+      id: id,
       title: title,
       body: body,
       tags: tags,
+      date: date,
     };
     setCards([...cards, newCard]);
   };
   return (
     <>
-      <BaseHeader HeaderLogo="마이스페이스 👨‍💻"/>
+      <BaseHeader HeaderLogo="마이스페이스 👨‍💻" />
       <MenuContainer>
         <WriteButton onClick={handleClickWriteBtn}>새 설문 만들기</WriteButton>
         <TabContainer>
@@ -60,13 +69,13 @@ const MySpace = () => {
         </SearchBox>
         <CardBox>
           {cards.map((card) => (
-            <BaseCard title={card.title} body={card.body} tags={card.tags} />
+            <BaseCard card={card} />
           ))}
-          <BaseCard
+          {/* <BaseCard
             title="좋아하는 음식"
             body="좋아하는 음식을 설문조사해서 맛있는 음식을 판매합니다. 사람들이 좋아하는 음식은 무엇일까요?"
             tags={["안녕"]}
-          />
+          /> */}
         </CardBox>
         {isModalOpen && (
           <SurveyModalSHM addCard={addCard} setIsModalOpen={setIsModalOpen} />

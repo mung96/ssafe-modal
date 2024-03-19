@@ -9,28 +9,36 @@ import {
 import SurveyForm from "./SurveyForm";
 import { useInput } from "../../hooks/useInput";
 import { useState } from "react";
-
-interface SurveyModal{
-  addCard:(title: string, body: string, tags: string[]) => void,
-  setIsModalOpen:React.Dispatch<React.SetStateAction<boolean>>
+import { v4 as uuidv4 } from "uuid";
+interface SurveyModal {
+  addCard: (
+    id: string,
+    title: string,
+    body: string,
+    tags: string[],
+    date: Date
+  ) => void;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-
-export const SurveyModalSHM:React.FC<SurveyModal> = ({ addCard, setIsModalOpen }) => {
+export const SurveyModalSHM: React.FC<SurveyModal> = ({
+  addCard,
+  setIsModalOpen,
+}) => {
   const [title, handleTitleChange] = useInput();
   const [body, setBody] = useState("");
   const [tags, setTags] = useState<string[]>([]);
 
-  const handleBodyChange = (e:ChangeEvent<HTMLTextAreaElement>) =>{
+  const handleBodyChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setBody(e.target.value);
-  }
+  };
 
   const clickOutside = () => {
     setIsModalOpen(false);
   };
 
   const handleClickBtn = () => {
-    addCard(title, body, tags);
+    addCard(uuidv4(), title, body, tags, new Date());
   };
   return (
     <>
