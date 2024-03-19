@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const HeaderArea = styled.div`
+  font-family: "Noto Sans KR";
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   height: 70px;
   padding: 8px 32px;
@@ -11,19 +11,28 @@ export const HeaderArea = styled.div`
   align-content: center;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
+  border-style: solid;
+  border-width: 0px 0px 1.5px 0px;
+  border-bottom-color: #e0e0e0;
 `;
 
-export const Logo = styled.a`
+export const HeaderLeft = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const Logo = styled.div`
   width: flex;
   height: flex;
   margin: 10px 30px;
-  color: #525252;
+  color: #263238;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
   background-color: white;
   border-radius: 10px;
+  text-decoration: none;
+  /* &: Link; */
 `;
 
 export const Profile = styled.div`

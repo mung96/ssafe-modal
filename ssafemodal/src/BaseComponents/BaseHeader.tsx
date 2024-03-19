@@ -1,17 +1,18 @@
-import React from "react";
-import { HeaderArea, Logo, Profile } from "../Styles/BaseHeader.jsx";
+import { HeaderArea, Logo, Profile } from "../Styles/BaseHeader";
+import { NicknameConsumer } from "../Pages/contexts/NicknameContext";
 
 type Props = {
   HeaderLogo?: string;
-  nickname?: string;
 };
 
-const BaseHeader = ({ HeaderLogo, nickname }: Props) => {
+const BaseHeader = ({ HeaderLogo }: Props) => {
   return (
     <>
       <HeaderArea>
         <Logo>{HeaderLogo}</Logo>
-        {nickname && <Profile>{nickname[0]}</Profile>}
+        <NicknameConsumer>
+          {({state}:{state:{nickname:string}})=>{return state.nickname && <Profile>{state.nickname}</Profile>}}
+        </NicknameConsumer>
       </HeaderArea>
     </>
   );
