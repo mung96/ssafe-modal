@@ -39,6 +39,7 @@ export const SurveyModalSHM: React.FC<SurveyModal> = ({
 
   const handleClickBtn = () => {
     addCard(uuidv4(), title, body, tags, new Date());
+    setIsModalOpen(false);
   };
   return (
     <>
