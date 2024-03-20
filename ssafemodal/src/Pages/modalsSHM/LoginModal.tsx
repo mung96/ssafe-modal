@@ -9,15 +9,16 @@ import {
 import { useInput } from "../../hooks/useInput";
 import { useNavigate } from "react-router-dom";
 
-interface Modal {
+interface ILoginModal {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const LoginModalSHM: React.FC<Modal> = ({ setIsModalOpen }) => {
-  const navigate = useNavigate();
+export const LoginModal: React.FC<ILoginModal> = ({ setIsModalOpen }) => {
+  
   const handleOutsideClick = () => {
     setIsModalOpen(false);
   };
+  const navigate = useNavigate();
   const handleCompleteBtn = (actions: {
     setNickname: (newNickname: string) => void;
   }) => {

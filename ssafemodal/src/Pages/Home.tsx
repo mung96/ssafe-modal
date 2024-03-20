@@ -10,13 +10,20 @@ import {
   SignupButton,
 } from "../Styles/Home";
 
-import { LoginModalSHM } from "./modalsSHM/LoginModal";
+import { LoginModal } from "./modalsSHM/LoginModal";
+import { Modal } from "./modalsSHM/Modal";
+import { useNavigate } from "react-router-dom";
+import { useInput } from "../hooks/useInput";
+import { LoginForm } from "./modalsSHM/LoginForm";
+
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleClickLoginBtn = () => {
     setIsModalOpen(true);
   };
+
+ 
 
   return (
     <>
@@ -47,7 +54,13 @@ const Home = () => {
           <SignupButton>Move to MySpace</SignupButton>
         </Link>
 
-        {isModalOpen && <LoginModalSHM setIsModalOpen={setIsModalOpen} />}
+        {/* {isModalOpen && <LoginModal setIsModalOpen={setIsModalOpen} />} */}
+        {isModalOpen && <Modal 
+          title={"닉네임을 입력하세요."} 
+          subtitle={"닉네임은 최소 4글자 이상이어야 합니다."} 
+          setIsModalOpen={setIsModalOpen} 
+          form={<LoginForm/>}
+          />}
       </Container>
     </>
   );

@@ -12,20 +12,17 @@ import { ReactNode } from "react";
 
 interface ModalType {
   title: string;
-  subTitle: string;
+  subtitle: string;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  handleCompleteBtn: (actions: {
-    setNickname: (newNickname: string) => void;
-  }) => void;
-  form: ReactNode;
+
+  form?: ReactNode;
 }
 
 export const Modal: React.FC<ModalType> = ({
   title,
-  subTitle,
+  subtitle,
   setIsModalOpen,
   form,
-  handleCompleteBtn,
 }) => {
   const handleOutsideClick = () => {
     setIsModalOpen(false);
@@ -37,17 +34,10 @@ export const Modal: React.FC<ModalType> = ({
       <ModalBlock>
         <ModalHeader>
           <h2>{title}</h2>
-          <span>{subTitle}</span>
+          <span>{subtitle}</span>
         </ModalHeader>
         <ModalMain>{form}</ModalMain>
         <ModalFooter>
-          <NicknameConsumer>
-            {({ state, actions }) => {
-              return (
-                <button onClick={() => handleCompleteBtn(actions)}>확인</button>
-              );
-            }}
-          </NicknameConsumer>
         </ModalFooter>
       </ModalBlock>
     </>
