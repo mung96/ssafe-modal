@@ -17,6 +17,7 @@ import { useState } from "react";
 import { Modal } from "../../components/modals/Modal";
 import SurveyForm from "../../components/forms/SurveyForm";
 import { ITag } from "../../components/forms/SurveyForm";
+import dummy from "./dummy.json";
 
 export interface ICard {
   id: string;
@@ -57,8 +58,12 @@ const MySpace = () => {
           </OrderButton>
         </SearchBox>
         <CardBox>
-          {cards.map((card) => (
-            <Card card={card} />
+          {dummy.map((card, idx) => {
+            const modifiedCard = { ...card, date: new Date(card.date) };
+            return <Card key={idx} card={modifiedCard} />;
+          })}
+          {cards.map((card, idx) => (
+            <Card key={idx} card={card} />
           ))}
         </CardBox>
         {isModalOpen && (
