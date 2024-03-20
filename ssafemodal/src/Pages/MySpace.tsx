@@ -18,12 +18,13 @@ import { useState } from "react";
 import { Modal } from "./modalsSHM/Modal";
 import SurveyForm from "./modalsSHM/SurveyForm";
 import { SurveyModal } from "./modalsSHM/SuerveyModal";
+import { ITag } from "./modalsSHM/SurveyForm";
 
 export interface ICard {
   id: string;
   title: string;
   body: string;
-  tags: string[];
+  tags: ITag[];
   date: Date;
 }
 

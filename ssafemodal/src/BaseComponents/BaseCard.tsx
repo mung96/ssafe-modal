@@ -9,6 +9,7 @@ import {
   CardTagBox,
 } from "../Styles/BaseCard";
 import { Tag } from "../Pages/modalsSHM/SurveyForm.element";
+import { ITag } from "../Pages/modalsSHM/SurveyForm";
 
 interface Card {
   card: {
@@ -16,7 +17,7 @@ interface Card {
     title: string;
     body: string;
     date: Date;
-    tags: string[];
+    tags: ITag[];
   };
 }
 
@@ -35,8 +36,8 @@ export const BaseCard: React.FC<Card> = ({ card }) => {
           <b>예상소요시간</b>: 30분
         </QuestionInfo>
         <CardTagBox>
-          {card.tags.map((tag: string, idx: number) => (
-            <Tag key={idx}>{tag}</Tag>
+          {card.tags.map((tag: ITag, idx: number) => (
+            <Tag key={idx} color={tag.color}>{tag.value}</Tag>
           ))}
         </CardTagBox>
       </CardContents>

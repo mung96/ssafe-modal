@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface TagInputProps{
+  color:string;
+}
+
 export const SurveyFormBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -41,13 +45,13 @@ export const InputGroup = styled.div`
   }
 `;
 
-export const Tag = styled.li`
+export const Tag = styled.li<TagInputProps>`
   display: inline-block;
   height: 32px;
   padding: 0px 24px;
   font-size: 12px;
   color:white;
-  background-color: #FF7364;
+  background-color: ${(props) => props.color};;
   line-height: 32px;
   margin-right: 10px;
   font-weight: 700;

@@ -17,21 +17,28 @@ interface ISurveyFormType {
   setIsModalOpen:React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+export interface ITag{
+  value: string,
+  color: string
+}
+
+
 const SurveyForm: React.FC<ISurveyFormType> = ({
   setIsModalOpen,
   addCard
 }) => {
-
+  const colors = ["#F04D1D","#A75EFF","#1EBDFE","#0DCF85"];
   const [title, handleTitleChange] = useInput();
   const [body, setBody] = useState("");
-  const [tags, setTags] = useState<string[]>([]);
+  const [tags, setTags] = useState<ITag[]>([]);
   const handleBodyChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setBody(e.target.value);
   };
 
   const handleTagAdd = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      setTags([...tags, (e.target as HTMLInputElement).value]);
+      const newTag = {value:(e.target as HTMLInputElement).value, color:colors[Math.floor(Math.random()*colors.length)]}
+      setTags([...tags, newTag]);
     }
   };
 
@@ -60,8 +67,8 @@ const SurveyForm: React.FC<ISurveyFormType> = ({
         <textarea id="body" name="body" onChange={handleBodyChange} />
       </InputGroup>
       <TagBox>
-        {tags?.map((tag: string, idx: number) => (
-          <Tag key={idx}> {"#" + tag} </Tag>
+        {tags?.map((tag: ITag, idx: number) => (
+          <Tag key={idx} color={tag.color}> {"#" + tag.value} </Tag>
         ))}
         <TagInput onKeyDown={handleTagAdd} placeholder="#태그입력" />
       </TagBox>
