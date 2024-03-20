@@ -17,9 +17,9 @@ import { IoCaretDownSharp } from "react-icons/io5";
 import { useState } from "react";
 import { Modal } from "./modalsSHM/Modal";
 import SurveyForm from "./modalsSHM/SurveyForm";
-import { SurveyModalSHM } from "./modalsSHM/SuerveyModal";
+import { SurveyModal } from "./modalsSHM/SuerveyModal";
 
-interface Card {
+export interface ICard {
   id: string;
   title: string;
   body: string;
@@ -32,21 +32,24 @@ const MySpace = () => {
   const handleClickWriteBtn = () => {
     setIsModalOpen(true);
   };
-  const [cards, setCards] = useState<Card[]>([]);
-  const addCard = (
-    id: string,
-    title: string,
-    body: string,
-    tags: string[],
-    date: Date
-  ) => {
-    const newCard = {
-      id: id,
-      title: title,
-      body: body,
-      tags: tags,
-      date: date,
-    };
+  const [cards, setCards] = useState<ICard[]>([]);
+  // const addCard = (
+  //   id: string,
+  //   title: string,
+  //   body: string,
+  //   tags: string[],
+  //   date: Date
+  // ) => {
+  //   const newCard = {
+  //     id: id,
+  //     title: title,
+  //     body: body,
+  //     tags: tags,
+  //     date: date,
+  //   };
+  //   setCards([...cards, newCard]);
+  // };
+  const addCard = (newCard:ICard) => {
     setCards([...cards, newCard]);
   };
   return (
@@ -86,7 +89,7 @@ const MySpace = () => {
           //   subTitle="새로운 설문지를 작성하기 위한 설정입니다."
           //   form={
           // />
-          <SurveyModalSHM addCard={addCard} setIsModalOpen={setIsModalOpen} />
+          <SurveyModal addCard={addCard} setIsModalOpen={setIsModalOpen} />
         )}
       </MySpaceContainer>
     </>

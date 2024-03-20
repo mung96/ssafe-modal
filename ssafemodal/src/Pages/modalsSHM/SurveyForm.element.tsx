@@ -8,15 +8,12 @@ export const SurveyFormBlock = styled.div`
   padding: 16px 32px 16px 16px;
 
   border-radius: 8px;
-
-  ul{
+`;
+export const TagBox = styled.div`
     display: flex;
     flex-direction: row;
-    width: fit-content;
     /* overflow-x:scroll; */
-  }
-`;
-
+`
 export const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
@@ -58,8 +55,7 @@ export const Tag = styled.li`
 `
 
 export const TagInput = styled.input`
-  display: inline-block;
-  /* width: 100px;  */
+  max-width: 100px;  //왜 width: 100px은 되지 않는거지?
   height: 32px;
   padding: 0px 24px;
 
@@ -69,7 +65,7 @@ export const TagInput = styled.input`
 
   border:none;
   outline:none;
-  background-color: #D4D4D4;
+  background-color: #f5f5f5;
   border-radius: 4px;
   
   &::placeholder{
@@ -77,3 +73,22 @@ export const TagInput = styled.input`
     font-weight: 700;
   }
 `
+
+export const ModalButton = styled.button`
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+`;
+
+export const ModalFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const ModalFooterCancel = styled(ModalButton)`
+  color: grey;
+`;
+
+export const ModalFooterConfirm = styled(ModalButton)`
+  color: black;
+`;

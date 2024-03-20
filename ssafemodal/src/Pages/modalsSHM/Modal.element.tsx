@@ -14,7 +14,6 @@ export const ModalBlock = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
-
   width: 480px;
 
   background-color: white;
@@ -44,6 +43,10 @@ export const ModalHeader = styled.div`
   }
 `;
 export const ModalMain = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap:32px;
+  
   input {
     width: 100%;
     background-color: #f5f5f5;
