@@ -45,8 +45,8 @@ export const ModalHeader = styled.div`
 export const ModalMain = styled.div`
   display: flex;
   flex-direction: column;
-  gap:32px;
-  
+  gap: 32px;
+
   input {
     width: 100%;
     background-color: #f5f5f5;
@@ -59,4 +59,12 @@ export const ModalFooter = styled.div`
   button {
     height: 20px;
   }
+`;
+
+export const CancelButton = styled.button`
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 200;
+  position: absolute;
 `;

@@ -10,12 +10,8 @@ import {
   SignupButton,
 } from "../Styles/Home";
 
-import { LoginModal } from "./modalsSHM/LoginModal";
-import { Modal } from "./modalsSHM/Modal";
-import { useNavigate } from "react-router-dom";
-import { useInput } from "../hooks/useInput";
-import { LoginForm } from "./modalsSHM/LoginForm";
-
+import { Modal } from "./modals/Modal";
+import { LoginForm } from "./modals/LoginForm";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,12 +19,9 @@ const Home = () => {
     setIsModalOpen(true);
   };
 
- 
-
   return (
     <>
       <BaseHeader HeaderLogo="폼나는싸패" />
-
       <Container>
         <TextBoard>
           <SubTitle>데이터 수집을 위한 올인원 툴</SubTitle>
@@ -44,23 +37,18 @@ const Home = () => {
             test
           </Description>
         </TextBoard>
-        <Link to="/logIn">
-          <SignupButton>로그인</SignupButton>
-        </Link>
-
-        <SignupButton onClick={handleClickLoginBtn}>로그인(현명)</SignupButton>
-
+        <SignupButton onClick={handleClickLoginBtn}>로그인</SignupButton>
         <Link to="/mySpace">
           <SignupButton>Move to MySpace</SignupButton>
         </Link>
-
-        {/* {isModalOpen && <LoginModal setIsModalOpen={setIsModalOpen} />} */}
-        {isModalOpen && <Modal 
-          title={"닉네임을 입력하세요."} 
-          subtitle={"닉네임은 최소 4글자 이상이어야 합니다."} 
-          setIsModalOpen={setIsModalOpen} 
-          form={<LoginForm/>}
-          />}
+        {isModalOpen && (
+          <Modal
+            title={"닉네임을 입력하세요."}
+            subtitle={"닉네임은 최소 4글자 이상이어야 합니다."}
+            setIsModalOpen={setIsModalOpen}
+            form={<LoginForm />}
+          />
+        )}
       </Container>
     </>
   );

@@ -8,8 +8,8 @@ import {
   QuestionInfo,
   CardTagBox,
 } from "../Styles/BaseCard";
-import { Tag } from "../Pages/modalsSHM/SurveyForm.element";
-import { ITag } from "../Pages/modalsSHM/SurveyForm";
+import { Tag } from "../Pages/modals/SurveyForm.element";
+import { ITag } from "../Pages/modals/SurveyForm";
 
 interface Card {
   card: {

@@ -1,4 +1,3 @@
-import React from "react";
 import BaseHeader from "../BaseComponents/BaseHeader";
 import {
   MenuContainer,
@@ -15,10 +14,9 @@ import BaseCard from "../BaseComponents/BaseCard";
 import { BiSolidSearch } from "react-icons/bi";
 import { IoCaretDownSharp } from "react-icons/io5";
 import { useState } from "react";
-import { Modal } from "./modalsSHM/Modal";
-import SurveyForm from "./modalsSHM/SurveyForm";
-import { SurveyModal } from "./modalsSHM/SuerveyModal";
-import { ITag } from "./modalsSHM/SurveyForm";
+import { Modal } from "./modals/Modal";
+import SurveyForm from "./modals/SurveyForm";
+import { ITag } from "./modals/SurveyForm";
 
 export interface ICard {
   id: string;
@@ -50,7 +48,7 @@ const MySpace = () => {
   //   };
   //   setCards([...cards, newCard]);
   // };
-  const addCard = (newCard:ICard) => {
+  const addCard = (newCard: ICard) => {
     setCards([...cards, newCard]);
   };
   return (
@@ -78,19 +76,16 @@ const MySpace = () => {
           {cards.map((card) => (
             <BaseCard card={card} />
           ))}
-          {/* <BaseCard
-            title="좋아하는 음식"
-            body="좋아하는 음식을 설문조사해서 맛있는 음식을 판매합니다. 사람들이 좋아하는 음식은 무엇일까요?"
-            tags={["안녕"]}
-          /> */}
         </CardBox>
         {isModalOpen && (
-          // <Modal
-          //   title="새로운 설문지를 작성합니다."
-          //   subTitle="새로운 설문지를 작성하기 위한 설정입니다."
-          //   form={
-          // />
-          <SurveyModal addCard={addCard} setIsModalOpen={setIsModalOpen} />
+          <Modal
+            title="새로운 설문지를 작성합니다."
+            subtitle="새로운 설문지를 작성하기 위한 설정입니다."
+            setIsModalOpen={setIsModalOpen}
+            form={
+              <SurveyForm addCard={addCard} setIsModalOpen={setIsModalOpen} />
+            }
+          />
         )}
       </MySpaceContainer>
     </>

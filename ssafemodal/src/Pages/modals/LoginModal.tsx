@@ -14,7 +14,6 @@ interface ILoginModal {
 }
 
 export const LoginModal: React.FC<ILoginModal> = ({ setIsModalOpen }) => {
-  
   const handleOutsideClick = () => {
     setIsModalOpen(false);
   };

@@ -13,7 +13,7 @@ import uuid from "react-uuid";
 import { ICard } from "../MySpace";
 
 interface ISurveyModal {
-  addCard: (card:ICard) => void;
+  addCard: (card: ICard) => void;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -21,29 +21,21 @@ export const SurveyModal: React.FC<ISurveyModal> = ({
   addCard,
   setIsModalOpen,
 }) => {
-  const clickOutside = () => {
-    setIsModalOpen(false);
-  };
-
   return (
     <>
-      <ModalBackground onClick={clickOutside}></ModalBackground>
+      <ModalBackground onClick={() => setIsModalOpen(false)}></ModalBackground>
       <ModalBlock>
         <ModalHeader>
           <h2>새로운 설문지를 작성합니다.</h2>
           <span>새로운 설문지를 작성하기 위한 설정입니다.</span>
         </ModalHeader>
         <ModalMain>
-          <SurveyForm
-            addCard={addCard}
-            setIsModalOpen={setIsModalOpen}
-          />
+          <SurveyForm addCard={addCard} setIsModalOpen={setIsModalOpen} />
         </ModalMain>
       </ModalBlock>
     </>
   );
 };
-
 
 // export const SurveyModal: React.FC<ISurveyModal> = ({
 //   addCard,
