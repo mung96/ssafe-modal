@@ -3,7 +3,6 @@ import {
   ModalBackground,
   ModalHeader,
   ModalMain,
-  CancelButton,
 } from "./Modal.element";
 import { ReactNode } from "react";
 interface ModalType {

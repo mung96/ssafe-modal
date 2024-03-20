@@ -12,13 +12,7 @@ import { useState } from "react";
 import { useInput } from "../../hooks/useInput";
 import { ChangeEvent } from "react";
 import uuid from "react-uuid";
-import {
-  ModalFooter,
-  ModalFooterCancel,
-  ModalFooterConfirm,
-  CompleteButton,
-  CancelButton,
-} from "./SurveyForm.element";
+import { CompleteButton, CancelButton } from "./SurveyForm.element";
 
 interface ISurveyFormType {
   addCard: (card: ICard) => void;
