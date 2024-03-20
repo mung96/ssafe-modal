@@ -42,6 +42,7 @@ export const QuestionInfo = styled.div`
 `;
 export const CardTagBox = styled.div`
   display: flex;
+  overflow: hidden;
 `;
 export const CardTag = styled.div`
   display: flex;
