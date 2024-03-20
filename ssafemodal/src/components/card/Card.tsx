@@ -1,5 +1,5 @@
 import {
-  Card,
+  CardBlock,
   CardHeader,
   CardTitle,
   CardDate,
@@ -7,11 +7,11 @@ import {
   Question,
   QuestionInfo,
   CardTagBox,
-} from "../Styles/BaseCard";
-import { Tag } from "../Pages/modals/SurveyForm.element";
-import { ITag } from "../Pages/modals/SurveyForm";
+} from "./Card.element";
+import { Tag } from "../forms/SurveyForm.element";
+import { ITag } from "../forms/SurveyForm";
 
-interface Card {
+interface ICard {
   card: {
     id: string;
     title: string;
@@ -21,9 +21,9 @@ interface Card {
   };
 }
 
-export const BaseCard: React.FC<Card> = ({ card }) => {
+export const Card: React.FC<ICard> = ({ card }) => {
   return (
-    <Card>
+    <CardBlock>
       <CardHeader>
         <CardTitle>{card.title}</CardTitle>
         <CardDate>{card.date.toLocaleDateString()}</CardDate>
@@ -37,12 +37,12 @@ export const BaseCard: React.FC<Card> = ({ card }) => {
         </QuestionInfo>
         <CardTagBox>
           {card.tags.map((tag: ITag, idx: number) => (
-            <Tag key={idx} color={tag.color}>{tag.value}</Tag>
+            <Tag key={idx} color={tag.color}>
+              {tag.value}
+            </Tag>
           ))}
         </CardTagBox>
       </CardContents>
-    </Card>
+    </CardBlock>
   );
 };
-
-export default BaseCard;

@@ -28,7 +28,6 @@ export const WriteButton = styled.button`
   margin-bottom: 10px;
   font-size: 14px;
   font-weight: bold;
-  background-color: black;
   border-radius: 4px;
   border-color: transparent;
   color: white;

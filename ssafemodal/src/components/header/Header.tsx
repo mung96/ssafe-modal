@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HeaderArea,HeaderLeft,Logo } from "../Styles/BaseHeader";
+import { HeaderArea, HeaderLeft, Logo } from "./Header.element";
 
 const Header = () => {
   return (

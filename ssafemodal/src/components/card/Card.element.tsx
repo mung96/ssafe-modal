@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Card = styled.div`
+export const CardBlock = styled.div`
   width: 356px;
   border: 1px solid #d4d4d4;
   border-radius: 8px;

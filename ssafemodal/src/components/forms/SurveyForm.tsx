@@ -7,7 +7,7 @@ import {
   TagInput,
 } from "./SurveyForm.element";
 import { KeyboardEvent } from "react";
-import { ICard } from "../MySpace";
+import { ICard } from "../../pages/myspace/MySpace";
 import { useState } from "react";
 import { useInput } from "../../hooks/useInput";
 import { ChangeEvent } from "react";
@@ -45,15 +45,20 @@ const SurveyForm: React.FC<ISurveyFormType> = ({ setIsModalOpen, addCard }) => {
   };
 
   const handleCompleteBtn = () => {
-    const newCard = {
-      id: uuid(),
-      title: title,
-      body: body,
-      tags: tags,
-      date: new Date(),
-    };
-    addCard(newCard);
-    setIsModalOpen(false);
+    if (title && body) {
+      const newCard = {
+        id: uuid(),
+        title: title,
+        body: body,
+        tags: tags,
+        date: new Date(),
+      };
+      addCard(newCard);
+      setIsModalOpen(false);
+    }
+    if (!title || !body) {
+      alert("제목과 본문을 채워주세요.");
+    }
   };
 
   return (
@@ -70,8 +75,7 @@ const SurveyForm: React.FC<ISurveyFormType> = ({ setIsModalOpen, addCard }) => {
         <TagBox>
           {tags?.map((tag: ITag, idx: number) => (
             <Tag key={idx} color={tag.color}>
-              {" "}
-              {"#" + tag.value}{" "}
+              {"#" + tag.value}
             </Tag>
           ))}
           <TagInput onKeyDown={handleTagAdd} placeholder="#태그입력" />

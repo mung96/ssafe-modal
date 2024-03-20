@@ -1,4 +1,4 @@
-import BaseHeader from "../BaseComponents/BaseHeader";
+import BaseHeader from "../../BaseComponents/BaseHeader";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -8,10 +8,10 @@ import {
   Title,
   Description,
   SignupButton,
-} from "../Styles/Home";
+} from "./Home.element";
 
-import { Modal } from "./modals/Modal";
-import { LoginForm } from "./modals/LoginForm";
+import { Modal } from "../../components/modals/Modal";
+import { LoginForm } from "../../components/forms/LoginForm";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
