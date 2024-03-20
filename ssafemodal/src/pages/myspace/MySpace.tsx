@@ -1,4 +1,4 @@
-import BaseHeader from "../BaseComponents/BaseHeader";
+import BaseHeader from "../../BaseComponents/BaseHeader";
 import {
   MenuContainer,
   MySpaceContainer,
@@ -9,14 +9,14 @@ import {
   SearchButton,
   OrderButton,
   CardBox,
-} from "../Styles/MySpace";
-import BaseCard from "../BaseComponents/BaseCard";
+} from "./MySpace.element";
+import { Card } from "../../components/card/Card";
 import { BiSolidSearch } from "react-icons/bi";
 import { IoCaretDownSharp } from "react-icons/io5";
 import { useState } from "react";
-import { Modal } from "./modals/Modal";
-import SurveyForm from "./modals/SurveyForm";
-import { ITag } from "./modals/SurveyForm";
+import { Modal } from "../../components/modals/Modal";
+import SurveyForm from "../../components/forms/SurveyForm";
+import { ITag } from "../../components/forms/SurveyForm";
 
 export interface ICard {
   id: string;
@@ -32,22 +32,6 @@ const MySpace = () => {
     setIsModalOpen(true);
   };
   const [cards, setCards] = useState<ICard[]>([]);
-  // const addCard = (
-  //   id: string,
-  //   title: string,
-  //   body: string,
-  //   tags: string[],
-  //   date: Date
-  // ) => {
-  //   const newCard = {
-  //     id: id,
-  //     title: title,
-  //     body: body,
-  //     tags: tags,
-  //     date: date,
-  //   };
-  //   setCards([...cards, newCard]);
-  // };
   const addCard = (newCard: ICard) => {
     setCards([...cards, newCard]);
   };
@@ -74,7 +58,7 @@ const MySpace = () => {
         </SearchBox>
         <CardBox>
           {cards.map((card) => (
-            <BaseCard card={card} />
+            <Card card={card} />
           ))}
         </CardBox>
         {isModalOpen && (

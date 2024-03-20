@@ -1,4 +1,4 @@
-import { NicknameConsumer } from "../contexts/NicknameContext";
+import { NicknameConsumer } from "../../contexts/NicknameContext";
 import { useInput } from "../../hooks/useInput";
 import { useNavigate } from "react-router-dom";
 import { CompleteButton, FormFooter } from "./LoginForm.element";

@@ -1,5 +1,5 @@
-import { HeaderArea, Logo, Profile } from "../Styles/BaseHeader";
-import { NicknameConsumer } from "../Pages/contexts/NicknameContext";
+import { HeaderArea, Logo, Profile } from "../components/header/Header.element";
+import { NicknameConsumer } from "../contexts/NicknameContext";
 
 type Props = {
   HeaderLogo?: string;
@@ -11,7 +11,9 @@ const BaseHeader = ({ HeaderLogo }: Props) => {
       <HeaderArea>
         <Logo>{HeaderLogo}</Logo>
         <NicknameConsumer>
-          {({state}:{state:{nickname:string}})=>{return state.nickname && <Profile>{state.nickname}</Profile>}}
+          {({ state }: { state: { nickname: string } }) => {
+            return state.nickname && <Profile>{state.nickname}</Profile>;
+          }}
         </NicknameConsumer>
       </HeaderArea>
     </>

@@ -7,7 +7,7 @@ import {
   TagInput,
 } from "./SurveyForm.element";
 import { KeyboardEvent } from "react";
-import { ICard } from "../MySpace";
+import { ICard } from "../../pages/myspace/MySpace";
 import { useState } from "react";
 import { useInput } from "../../hooks/useInput";
 import { ChangeEvent } from "react";
