@@ -6,15 +6,14 @@ import {
   TagBox,
   TagInput,
 } from "./SurveyForm.element";
-import { KeyboardEvent } from "react";
 import { ICard } from "../../pages/myspace/MySpace";
-import { useState } from "react";
 import { useInput } from "../../hooks/useInput";
-import { ChangeEvent } from "react";
+import { ChangeEvent,KeyboardEvent,useState } from "react";
 import uuid from "react-uuid";
 import { CompleteButton, CancelButton } from "./SurveyForm.element";
+import { CARD_COLORS } from "../../styles/palette";
 
-interface ISurveyFormType {
+interface ISurveyForm {
   addCard: (card: ICard) => void;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -24,8 +23,7 @@ export interface ITag {
   color: string;
 }
 
-const SurveyForm: React.FC<ISurveyFormType> = ({ setIsModalOpen, addCard }) => {
-  const colors = ["#F04D1D", "#A75EFF", "#1EBDFE", "#0DCF85"];
+const SurveyForm: React.FC<ISurveyForm> = ({ setIsModalOpen, addCard }) => {
   const [title, handleTitleChange] = useInput();
   const [body, setBody] = useState("");
   const [tags, setTags] = useState<ITag[]>([]);
@@ -37,7 +35,7 @@ const SurveyForm: React.FC<ISurveyFormType> = ({ setIsModalOpen, addCard }) => {
     if (e.key === "Enter") {
       const newTag = {
         value: (e.target as HTMLInputElement).value,
-        color: colors[Math.floor(Math.random() * colors.length)],
+        color: CARD_COLORS[Math.floor(Math.random() * CARD_COLORS.length)],
       };
       setTags([...tags, newTag]);
       (e.target as HTMLInputElement).value = "";

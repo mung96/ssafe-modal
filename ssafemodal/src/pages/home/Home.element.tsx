@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const TextBoard = styled.div`
   justify-content: center;
-  margin: 0px 0px 100px 0px;
+  margin-bottom: 100px;
 `;
 
 export const SubTitle = styled.div`

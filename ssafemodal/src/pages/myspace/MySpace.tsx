@@ -17,7 +17,7 @@ import { useState } from "react";
 import { Modal } from "../../components/modals/Modal";
 import SurveyForm from "../../components/forms/SurveyForm";
 import { ITag } from "../../components/forms/SurveyForm";
-import dummy from "./dummy.json";
+import dummy from "../../dummy.json";
 
 export interface ICard {
   id: string;

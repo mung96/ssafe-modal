@@ -5,14 +5,14 @@ import {
   ModalMain,
 } from "./Modal.element";
 import { ReactNode } from "react";
-interface ModalType {
+interface IModal {
   title: string;
   subtitle: string;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   form: ReactNode;
 }
 
-export const Modal: React.FC<ModalType> = ({
+export const Modal: React.FC<IModal> = ({
   title,
   subtitle,
   setIsModalOpen,
