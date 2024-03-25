@@ -58,12 +58,12 @@ const MySpace = () => {
           </OrderButton>
         </SearchBox>
         <CardBox>
-          {dummy.map((card, idx) => {
+          {dummy.map((card) => {
             const modifiedCard = { ...card, date: new Date(card.date) };
-            return <Card key={idx} card={modifiedCard} />;
+            return <Card key={card.id} card={modifiedCard} />;
           })}
           {cards.map((card, idx) => (
-            <Card key={idx} card={card} />
+            <Card key={card.id} card={card} />
           ))}
         </CardBox>
         {isModalOpen && (
