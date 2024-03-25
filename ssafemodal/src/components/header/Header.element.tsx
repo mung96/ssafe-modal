@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const HeaderArea = styled.div`
-  font-family: "Noto Sans KR";
   position: fixed;
   top: 0;
   width: 100%;
@@ -13,7 +12,8 @@ export const HeaderArea = styled.div`
   justify-content: space-between;
   border-style: solid;
   border-width: 0px 0px 1.5px 0px;
-  border-bottom-color: #e0e0e0;
+  border:none;
+  background-color: white;
 `;
 
 export const HeaderLeft = styled.div`

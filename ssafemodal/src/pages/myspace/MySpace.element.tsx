@@ -31,6 +31,7 @@ export const WriteButton = styled.button`
   border-radius: 4px;
   border-color: transparent;
   color: white;
+  background-color: black;
   cursor: pointer;
   display: flex;
   flex-direction: row;
