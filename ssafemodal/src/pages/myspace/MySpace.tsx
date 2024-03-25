@@ -22,7 +22,7 @@ import dummy from "../../dummy.json";
 export interface ICard {
   id: string;
   title: string;
-  body: string;
+  content: string;
   tags: ITag[];
   date: Date;
 }

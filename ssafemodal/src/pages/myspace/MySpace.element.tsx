@@ -15,11 +15,11 @@ export const TabButton = styled.button`
   background-color: white;
   padding: 8px 24px;
   border: none;
-  ${(props) =>
+  /* ${(props) =>
     !props.disabled &&
     css`
       border-bottom: 3px solid black;
-    `}
+    `} */
 `;
 
 export const WriteButton = styled.button`

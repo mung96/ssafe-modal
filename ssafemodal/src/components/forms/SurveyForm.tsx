@@ -24,11 +24,11 @@ export interface ITag {
 }
 
 const SurveyForm: React.FC<ISurveyForm> = ({ setIsModalOpen, addCard }) => {
-  const [title, handleTitleChange] = useInput();
-  const [body, setBody] = useState("");
+  const title= useInput();
+  const [content, setContent] = useState("");
   const [tags, setTags] = useState<ITag[]>([]);
   const handleBodyChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setBody(e.target.value);
+    setContent(e.target.value);
   };
 
   const handleTagAdd = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -43,18 +43,19 @@ const SurveyForm: React.FC<ISurveyForm> = ({ setIsModalOpen, addCard }) => {
   };
 
   const handleCompleteBtn = () => {
-    if (title && body) {
+    if (title && content) {
       const newCard = {
         id: uuid(),
-        title: title,
-        body: body,
+        title: title.value,
+        content: content,
         tags: tags,
         date: new Date(),
       };
       addCard(newCard);
       setIsModalOpen(false);
     }
-    if (!title || !body) {
+    if (!title || !content) {
+      //TODO: disable처리
       alert("제목과 본문을 채워주세요.");
     }
   };
@@ -64,7 +65,7 @@ const SurveyForm: React.FC<ISurveyForm> = ({ setIsModalOpen, addCard }) => {
       <SurveyFormBlock>
         <InputGroup>
           <label htmlFor="title">설문지 이름을 입력하세요.</label>
-          <input id="title" name="title" onChange={handleTitleChange} />
+          <input id="title" name="title" onChange={title.handleChange} />
         </InputGroup>
         <InputGroup>
           <label htmlFor="body">설문지 내용을 입력하세요.</label>

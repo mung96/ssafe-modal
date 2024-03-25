@@ -6,7 +6,7 @@ interface ICard {
   card: {
     id: string;
     title: string;
-    body: string;
+    content: string;
     date: Date;
     tags: ITag[];
   };
@@ -20,7 +20,7 @@ export const Card: React.FC<ICard> = ({ card }) => {
         <C.CardDate>{card.date.toLocaleDateString()}</C.CardDate>
       </C.CardHeader>
       <C.CardContents>
-        <C.Question>{card.body}</C.Question>
+        <C.Question>{card.content}</C.Question>
         <C.QuestionInfo>
           <b>문항수</b>: 30개
           <br />
