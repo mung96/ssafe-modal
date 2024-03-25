@@ -1,16 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { HeaderArea, HeaderLeft, Logo } from "./Header.element";
+import { HeaderArea, Logo, Profile } from "./Header.element";
+import { NicknameConsumer } from "../../contexts/NicknameContext";
 
-const Header = () => {
+type Props = {
+  HeaderLogo?: string;
+};
+
+const Header = ({ HeaderLogo }: Props) => {
   return (
     <>
       <HeaderArea>
-        <HeaderLeft>
-          <Link to="/">
-            <Logo>폼나는 싸패</Logo>
-          </Link>
-        </HeaderLeft>
+        <Logo>{HeaderLogo}</Logo>
+        <NicknameConsumer>
+          {({ state }: { state: { nickname: string } }) => {
+            return state.nickname && <Profile>{state.nickname}</Profile>;
+          }}
+        </NicknameConsumer>
       </HeaderArea>
     </>
   );

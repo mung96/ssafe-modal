@@ -1,4 +1,4 @@
-import BaseHeader from "../../BaseComponents/BaseHeader";
+import BaseHeader from "../../components/header/Header";
 import {
   MenuContainer,
   MySpaceContainer,
