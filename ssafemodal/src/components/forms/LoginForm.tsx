@@ -13,12 +13,12 @@ export const LoginForm = () => {
   };
   return (
     <>
-      <input onChange={nickname.handleChange} />
+      <input onChange={nickname.handleChange} maxLength={10} minLength={4}/>
       <FormFooter>
         <NicknameConsumer>
           {({ actions }) => {
             return (
-              <CompleteButton onClick={() => handleCompleteBtn(actions)}>
+              <CompleteButton onClick={() => handleCompleteBtn(actions)} disabled={nickname.value.length<4}>
                 확인
               </CompleteButton>
             );
