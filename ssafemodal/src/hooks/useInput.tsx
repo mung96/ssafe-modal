@@ -7,6 +7,11 @@ export const useInput = () => {
     setInputValue(e.target.value);
   };
 
-  return [inputValue, handleChange] as const;
+  const inputProps={
+    value:inputValue,
+    handleChange:handleChange
+  };
+
+  return inputProps;
 };
 

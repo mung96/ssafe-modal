@@ -9,7 +9,7 @@ export const CardBlock = styled.div`
 `;
 
 export const CardHeader = styled.div`
-  padding: 20px 20px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,7 +49,7 @@ export const CardTag = styled.div`
   align-items: center;
   justify-content: center;
   height: 12px;
-  margin: 0px 10px 0px 0px;
+  margin-right: 10px;
   padding: 10px 15px;
   border-radius: 30px;
   font-size: 14px;

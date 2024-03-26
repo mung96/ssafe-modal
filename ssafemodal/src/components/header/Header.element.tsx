@@ -1,25 +1,28 @@
 import styled from "styled-components";
 
 export const HeaderArea = styled.div`
-  font-family: "Noto Sans KR";
   position: fixed;
   top: 0;
   width: 100%;
   height: 70px;
   padding: 8px 32px;
   display: flex;
-  align-content: center;
   align-items: center;
   justify-content: space-between;
   border-style: solid;
   border-width: 0px 0px 1.5px 0px;
-  border-bottom-color: #e0e0e0;
+  border:none;
+  background-color: white;
 `;
 
 export const HeaderLeft = styled.div`
   display: flex;
   align-items: center;
 `;
+export const HeaderRight = styled.div`
+  display: flex;
+  align-items: center;
+`
 
 export const Logo = styled.div`
   width: flex;

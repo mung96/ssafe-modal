@@ -1,4 +1,4 @@
-import BaseHeader from "../../BaseComponents/BaseHeader";
+import BaseHeader from "../../components/header/Header";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {

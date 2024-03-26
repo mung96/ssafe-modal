@@ -1,16 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { HeaderArea, HeaderLeft, Logo } from "./Header.element";
+import { useContext } from "react";
+import { HeaderArea, HeaderLeft, HeaderRight, Logo, Profile } from "./Header.element";
+import NicknameContext from "../../contexts/NicknameContext";
 
-const Header = () => {
+type Props = {
+  HeaderLogo?: string;
+};
+
+const Header = ({ HeaderLogo }: Props) => {
+  const {state} = useContext(NicknameContext);
   return (
     <>
       <HeaderArea>
         <HeaderLeft>
-          <Link to="/">
-            <Logo>폼나는 싸패</Logo>
-          </Link>
+        <Logo>{HeaderLogo}</Logo>
         </HeaderLeft>
+        <HeaderRight>
+        {state.nickname && <Profile>{state.nickname}</Profile>}    
+        </HeaderRight>
       </HeaderArea>
     </>
   );

@@ -1,13 +1,13 @@
 import React, { createContext, useState } from "react";
 
-interface ContextType {
+interface IContext {
   state: { nickname: string };
   actions: {
     setNickname: (newNickname: string) => void;
   };
 }
 
-const NicknameContext = createContext<ContextType>({
+const NicknameContext = createContext<IContext>({
   state: { nickname: "" },
   actions: {
     setNickname: () => {},
@@ -19,7 +19,7 @@ const NicknameProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [nickname, setNickname] = useState("");
 
-  const value: ContextType = {
+  const value: IContext = {
     state: { nickname },
     actions: {
       setNickname: (newNickname: string) => setNickname(newNickname),
@@ -32,8 +32,6 @@ const NicknameProvider: React.FC<{ children: React.ReactNode }> = ({
     </NicknameContext.Provider>
   );
 };
-
-const { Consumer: NicknameConsumer } = NicknameContext;
-export { NicknameProvider, NicknameConsumer };
+export { NicknameProvider};
 
 export default NicknameContext;

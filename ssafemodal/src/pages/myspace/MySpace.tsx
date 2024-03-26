@@ -1,4 +1,4 @@
-import BaseHeader from "../../BaseComponents/BaseHeader";
+import BaseHeader from "../../components/header/Header";
 import {
   MenuContainer,
   MySpaceContainer,
@@ -17,12 +17,12 @@ import { useState } from "react";
 import { Modal } from "../../components/modals/Modal";
 import SurveyForm from "../../components/forms/SurveyForm";
 import { ITag } from "../../components/forms/SurveyForm";
-import dummy from "./dummy.json";
+import dummy from "../../dummy.json";
 
 export interface ICard {
   id: string;
   title: string;
-  body: string;
+  content: string;
   tags: ITag[];
   date: Date;
 }
@@ -58,12 +58,12 @@ const MySpace = () => {
           </OrderButton>
         </SearchBox>
         <CardBox>
-          {dummy.map((card, idx) => {
+          {dummy.map((card) => {
             const modifiedCard = { ...card, date: new Date(card.date) };
-            return <Card key={idx} card={modifiedCard} />;
+            return <Card key={card.id} card={modifiedCard} />;
           })}
           {cards.map((card, idx) => (
-            <Card key={idx} card={card} />
+            <Card key={card.id} card={card} />
           ))}
         </CardBox>
         {isModalOpen && (

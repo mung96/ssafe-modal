@@ -15,11 +15,11 @@ export const TabButton = styled.button`
   background-color: white;
   padding: 8px 24px;
   border: none;
-  ${(props) =>
+  /* ${(props) =>
     !props.disabled &&
     css`
       border-bottom: 3px solid black;
-    `}
+    `} */
 `;
 
 export const WriteButton = styled.button`
@@ -31,6 +31,7 @@ export const WriteButton = styled.button`
   border-radius: 4px;
   border-color: transparent;
   color: white;
+  background-color: black;
   cursor: pointer;
   display: flex;
   flex-direction: row;
