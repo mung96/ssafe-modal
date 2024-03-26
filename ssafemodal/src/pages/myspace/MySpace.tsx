@@ -18,6 +18,8 @@ import { Modal } from "../../components/modals/Modal";
 import SurveyForm from "../../components/forms/SurveyForm";
 import { ITag } from "../../components/forms/SurveyForm";
 import dummy from "../../dummy.json";
+import { useModal } from "../../hooks/useModal";
+import { Modalv2 } from "../../components/modals/Modalv2";
 
 export interface ICard {
   id: string;
@@ -29,8 +31,10 @@ export interface ICard {
 
 const MySpace = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const {isOpen,openModal} = useModal();
   const handleClickWriteBtn = () => {
-    setIsModalOpen(true);
+    // setIsModalOpen(true);
+    openModal();
   };
   const [cards, setCards] = useState<ICard[]>([]);
   const addCard = (newCard: ICard) => {
@@ -76,6 +80,7 @@ const MySpace = () => {
             }
           />
         )}
+        {isOpen && <Modalv2 type="SURVEY" ></Modalv2>}
       </MySpaceContainer>
     </>
   );

@@ -42,7 +42,7 @@ export const ModalHeader = styled.div`
     font-size: 14px;
   }
 `;
-export const ModalMain = styled.div`
+export const ModalBody = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -56,15 +56,23 @@ export const ModalMain = styled.div`
   }
 `;
 export const ModalFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
   button {
     height: 20px;
   }
+`;
+
+export const CompleteButton = styled.button`
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 800;
 `;
 
 export const CancelButton = styled.button`
   border-color: transparent;
   background-color: transparent;
   cursor: pointer;
-  z-index: 200;
-  position: absolute;
+  color: grey;
 `;

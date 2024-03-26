@@ -1,9 +1,4 @@
-import {
-  ModalBlock,
-  ModalBackground,
-  ModalHeader,
-  ModalMain,
-} from "./Modal.element";
+import * as M from "./Modal.element";
 import { ReactNode } from "react";
 interface IModal {
   title: string;
@@ -20,14 +15,28 @@ export const Modal: React.FC<IModal> = ({
 }) => {
   return (
     <>
-      <ModalBackground onClick={() => setIsModalOpen(false)} />
-      <ModalBlock>
-        <ModalHeader>
+      <M.ModalBackground onClick={() => setIsModalOpen(false)} />
+      <M.ModalBlock>
+        <M.ModalHeader>
           <h2>{title}</h2>
           <span>{subtitle}</span>
-        </ModalHeader>
-        <ModalMain>{form}</ModalMain>
-      </ModalBlock>
+        </M.ModalHeader>
+        <M.ModalBody>{form}</M.ModalBody>
+        <M.ModalFooter></M.ModalFooter>
+      </M.ModalBlock>
     </>
   );
 };
+{/* <Dialog>
+  <Dialog.Dimmed />
+  <Dialog.Title>타이틀</Dialog.Title>
+  <Dialog.CheckBox isChecked hasArrowButton>
+    버튼명
+  </Dialog.CheckBox>
+  <Dialog.CheckBox hasArrowButton>버튼명</Dialog.CheckBox>
+  <Dialog.CheckBox hasArrowButton>버튼명</Dialog.CheckBox>
+  
+  <Dialog.CheckBox hasArrowButton>버튼명</Dialog.CheckBox>
+  <Dialog.CheckBox hasArrowButton>버튼명</Dialog.CheckBox>
+  <Dialog.LabelButton>버튼레이블</Dialog.LabelButton>
+</Dialog> */}

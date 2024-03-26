@@ -51,7 +51,7 @@ export const Tag = styled.li<TagInputProps>`
   padding: 0px 24px;
   font-size: 12px;
   color: white;
-  background-color: ${(props) => props.color};
+  /* background-color: ${(props) => props.color}; */
   line-height: 32px;
   margin-right: 10px;
   font-weight: 700;
