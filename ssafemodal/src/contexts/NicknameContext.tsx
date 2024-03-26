@@ -32,8 +32,6 @@ const NicknameProvider: React.FC<{ children: React.ReactNode }> = ({
     </NicknameContext.Provider>
   );
 };
-
-const { Consumer: NicknameConsumer } = NicknameContext;
-export { NicknameProvider, NicknameConsumer };
+export { NicknameProvider};
 
 export default NicknameContext;

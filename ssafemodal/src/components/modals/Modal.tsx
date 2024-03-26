@@ -20,7 +20,7 @@ export const Modal: React.FC<IModal> = ({
 }) => {
   return (
     <>
-      <ModalBackground onClick={() => setIsModalOpen(false)}></ModalBackground>
+      <ModalBackground onClick={() => setIsModalOpen(false)} />
       <ModalBlock>
         <ModalHeader>
           <h2>{title}</h2>

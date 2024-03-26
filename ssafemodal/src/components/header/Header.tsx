@@ -1,20 +1,22 @@
-import { HeaderArea, Logo, Profile } from "./Header.element";
-import { NicknameConsumer } from "../../contexts/NicknameContext";
+import { useContext } from "react";
+import { HeaderArea, HeaderLeft, HeaderRight, Logo, Profile } from "./Header.element";
+import NicknameContext from "../../contexts/NicknameContext";
 
 type Props = {
   HeaderLogo?: string;
 };
 
 const Header = ({ HeaderLogo }: Props) => {
+  const {state} = useContext(NicknameContext);
   return (
     <>
       <HeaderArea>
+        <HeaderLeft>
         <Logo>{HeaderLogo}</Logo>
-        <NicknameConsumer>
-          {({ state }: { state: { nickname: string } }) => {
-            return state.nickname && <Profile>{state.nickname}</Profile>;
-          }}
-        </NicknameConsumer>
+        </HeaderLeft>
+        <HeaderRight>
+        {state.nickname && <Profile>{state.nickname}</Profile>}    
+        </HeaderRight>
       </HeaderArea>
     </>
   );

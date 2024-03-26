@@ -7,7 +7,6 @@ export const HeaderArea = styled.div`
   height: 70px;
   padding: 8px 32px;
   display: flex;
-  align-content: center;
   align-items: center;
   justify-content: space-between;
   border-style: solid;
@@ -20,6 +19,10 @@ export const HeaderLeft = styled.div`
   display: flex;
   align-items: center;
 `;
+export const HeaderRight = styled.div`
+  display: flex;
+  align-items: center;
+`
 
 export const Logo = styled.div`
   width: flex;
