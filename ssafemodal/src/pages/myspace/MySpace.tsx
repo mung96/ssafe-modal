@@ -17,7 +17,7 @@ import { useState } from "react";
 import { ITag } from "../../components/forms/SurveyForm";
 import dummy from "../../dummy.json";
 import { useModal } from "../../hooks/useModal";
-import { Modalv2 } from "../../components/modals/Modalv2";
+import { Modal } from "../../components/modals/Modal";
 import uuid from "react-uuid";
 import { useInput } from "../../hooks/useInput";
 export interface ICard {
@@ -107,7 +107,7 @@ const MySpace = () => {
           ))}
         </CardBox>
         {isModalOpen && (
-          <Modalv2
+          <Modal
             type="SURVEY"
             closeModal={closeModal}
             confirm={confirm}
