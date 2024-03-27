@@ -77,9 +77,9 @@ const MySpace = () => {
             form={<SurveyForm addCard={addCard} setIsModalOpen={openModal} />}
           />
         )} */}
-        {isModalOpen && (
+        {/* {isModalOpen && (
           <Modalv2 type="SURVEY" closeModal={closeModal}></Modalv2>
-        )}
+        )} */}
       </MySpaceContainer>
     </>
   );

@@ -1,6 +1,7 @@
 import Header from "../../components/header/Header";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   TextBoard,
@@ -18,7 +19,15 @@ const Home = () => {
   const handleClickLoginBtn = () => {
     openModal();
   };
+  const navigate = useNavigate();
+  const handleConfirmBtnClick = () => {
+    navigate("/mySpace");
+  };
 
+  const confirm = {
+    title: "확인",
+    onClick: handleConfirmBtnClick,
+  };
   return (
     <>
       <Header HeaderLogo="폼나는싸패" />
@@ -49,7 +58,9 @@ const Home = () => {
             form={<LoginForm />}
           />
         )} */}
-        {isModalOpen && <Modalv2 type="LOGIN" closeModal={closeModal} />}
+        {isModalOpen && (
+          <Modalv2 type="LOGIN" closeModal={closeModal} confirm={confirm} />
+        )}
       </Container>
     </>
   );
