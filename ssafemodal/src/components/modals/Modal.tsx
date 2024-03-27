@@ -3,7 +3,7 @@ import { MODAL_TEXT, ModalType } from "./ModalConstants";
 import { Tag, TagBox, TagInput } from "../forms/SurveyForm.element";
 import { ITag } from "../forms/SurveyForm";
 import { KeyboardEvent } from "react";
-import { CARD_COLORS } from "../../styles/palette";
+import { CARD_COLORS } from "../../palette";
 import { InputGroup } from "../forms/SurveyForm.element";
 
 export interface IModal {
