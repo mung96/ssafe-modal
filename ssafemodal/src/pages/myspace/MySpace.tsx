@@ -14,11 +14,12 @@ import { Card } from "../../components/card/Card";
 import { BiSolidSearch } from "react-icons/bi";
 import { IoCaretDownSharp } from "react-icons/io5";
 import { useState } from "react";
-import { Modal } from "../../components/modals/Modal";
-import SurveyForm from "../../components/forms/SurveyForm";
 import { ITag } from "../../components/forms/SurveyForm";
 import dummy from "../../dummy.json";
-
+import { useModal } from "../../hooks/useModal";
+import { Modal } from "../../components/modals/Modal";
+import uuid from "react-uuid";
+import { useInput } from "../../hooks/useInput";
 export interface ICard {
   id: string;
   title: string;
@@ -28,14 +29,59 @@ export interface ICard {
 }
 
 const MySpace = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isModalOpen, openModal, closeModal } = useModal();
+  const title = useInput();
+  const content = useInput();
+  const [tags, setTags] = useState<ITag[]>([]);
   const handleClickWriteBtn = () => {
-    setIsModalOpen(true);
+    openModal();
   };
   const [cards, setCards] = useState<ICard[]>([]);
   const addCard = (newCard: ICard) => {
     setCards([...cards, newCard]);
   };
+  const handleConfirmBtnClick = () => {
+    if (title && content) {
+      const newCard = {
+        id: uuid(),
+        title: title.value,
+        content: content.value,
+        tags: tags,
+        date: new Date(),
+      };
+      addCard(newCard);
+      closeModal();
+    }
+  };
+
+  const confirm = {
+    title: "확인",
+    onClick: handleConfirmBtnClick,
+    disabledCond: !title.value || !content.value,
+  };
+  const cancel = {
+    title: "취소",
+    onClick: closeModal,
+  };
+  const body = {
+    input: [
+      {
+        name: "title",
+        field: title,
+        label: "설문지 이름을 입력하세요.",
+      },
+    ],
+    textarea: {
+      name: "content",
+      field: content,
+      label: "설문지 내용을 입력하세요.",
+    },
+    tag: {
+      tags: tags,
+      setTags: setTags,
+    },
+  };
+
   return (
     <>
       <BaseHeader HeaderLogo="마이스페이스 👨‍💻" />
@@ -62,18 +108,17 @@ const MySpace = () => {
             const modifiedCard = { ...card, date: new Date(card.date) };
             return <Card key={card.id} card={modifiedCard} />;
           })}
-          {cards.map((card, idx) => (
+          {cards.map((card) => (
             <Card key={card.id} card={card} />
           ))}
         </CardBox>
         {isModalOpen && (
           <Modal
-            title="새로운 설문지를 작성합니다."
-            subtitle="새로운 설문지를 작성하기 위한 설정입니다."
-            setIsModalOpen={setIsModalOpen}
-            form={
-              <SurveyForm addCard={addCard} setIsModalOpen={setIsModalOpen} />
-            }
+            type="SURVEY"
+            closeModal={closeModal}
+            confirm={confirm}
+            cancel={cancel}
+            body={body}
           />
         )}
       </MySpaceContainer>

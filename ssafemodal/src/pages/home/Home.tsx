@@ -1,6 +1,6 @@
-import BaseHeader from "../../components/header/Header";
-import { useState } from "react";
+import Header from "../../components/header/Header";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   TextBoard,
@@ -10,18 +10,41 @@ import {
   SignupButton,
 } from "./Home.element";
 
+import { useModal } from "../../hooks/useModal";
 import { Modal } from "../../components/modals/Modal";
-import { LoginForm } from "../../components/forms/LoginForm";
+import { useInput } from "../../hooks/useInput";
+import { useContext } from "react";
+import NicknameContext from "../../contexts/NicknameContext";
 
 const Home = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isModalOpen, openModal, closeModal } = useModal();
+  const { actions } = useContext(NicknameContext);
+  const nickname = useInput();
   const handleClickLoginBtn = () => {
-    setIsModalOpen(true);
+    openModal();
+  };
+  const navigate = useNavigate();
+  const handleConfirmBtnClick = () => {
+    actions.setNickname(nickname.value[0]);
+    navigate("/mySpace");
   };
 
+  const confirm = {
+    title: "확인",
+    onClick: handleConfirmBtnClick,
+    disabledCond: nickname.value.length < 4,
+  };
+  const body = {
+    input: [
+      {
+        name: "nickname",
+        field: nickname,
+      },
+    ],
+  };
   return (
     <>
-      <BaseHeader HeaderLogo="폼나는싸패" />
+      <Header HeaderLogo="폼나는싸패" />
       <Container>
         <TextBoard>
           <SubTitle>데이터 수집을 위한 올인원 툴</SubTitle>
@@ -43,10 +66,10 @@ const Home = () => {
         </Link>
         {isModalOpen && (
           <Modal
-            title={"닉네임을 입력하세요."}
-            subtitle={"닉네임은 최소 4글자 이상이어야 합니다."}
-            setIsModalOpen={setIsModalOpen}
-            form={<LoginForm />}
+            type="LOGIN"
+            closeModal={closeModal}
+            confirm={confirm}
+            body={body}
           />
         )}
       </Container>
