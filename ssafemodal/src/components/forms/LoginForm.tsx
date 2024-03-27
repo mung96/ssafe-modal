@@ -16,7 +16,7 @@ export const LoginForm = () => {
 
   return (
     <>
-      <input onChange={nickname.handleChange} maxLength={10} minLength={4} />
+      <input onChange={nickname.onChange} maxLength={10} minLength={4} />
       <FormFooter>
         <CompleteButton
           onClick={handleCompleteBtn}

@@ -8,7 +8,7 @@ import {
 } from "./SurveyForm.element";
 import { ICard } from "../../pages/myspace/MySpace";
 import { useInput } from "../../hooks/useInput";
-import { ChangeEvent,KeyboardEvent,useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 import uuid from "react-uuid";
 import { CompleteButton, CancelButton } from "./SurveyForm.element";
 import { CARD_COLORS } from "../../styles/palette";
@@ -24,7 +24,7 @@ export interface ITag {
 }
 
 const SurveyForm: React.FC<ISurveyForm> = ({ setIsModalOpen, addCard }) => {
-  const title= useInput();
+  const title = useInput();
   const [content, setContent] = useState("");
   const [tags, setTags] = useState<ITag[]>([]);
   const handleBodyChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -65,7 +65,7 @@ const SurveyForm: React.FC<ISurveyForm> = ({ setIsModalOpen, addCard }) => {
       <SurveyFormBlock>
         <InputGroup>
           <label htmlFor="title">설문지 이름을 입력하세요.</label>
-          <input id="title" name="title" onChange={title.handleChange} />
+          <input id="title" name="title" onChange={title.onChange} />
         </InputGroup>
         <InputGroup>
           <label htmlFor="body">설문지 내용을 입력하세요.</label>

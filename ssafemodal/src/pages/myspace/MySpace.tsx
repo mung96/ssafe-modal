@@ -14,13 +14,12 @@ import { Card } from "../../components/card/Card";
 import { BiSolidSearch } from "react-icons/bi";
 import { IoCaretDownSharp } from "react-icons/io5";
 import { useState } from "react";
-import { Modal } from "../../components/modals/Modal";
-import SurveyForm from "../../components/forms/SurveyForm";
 import { ITag } from "../../components/forms/SurveyForm";
 import dummy from "../../dummy.json";
 import { useModal } from "../../hooks/useModal";
 import { Modalv2 } from "../../components/modals/Modalv2";
-
+import uuid from "react-uuid";
+import { useInput } from "../../hooks/useInput";
 export interface ICard {
   id: string;
   title: string;
@@ -31,14 +30,52 @@ export interface ICard {
 
 const MySpace = () => {
   const { isModalOpen, openModal, closeModal } = useModal();
+  const title = useInput();
+  const content = useInput();
+  const [tags, setTags] = useState<ITag[]>([]);
   const handleClickWriteBtn = () => {
-    // setIsModalOpen(true);
     openModal();
   };
   const [cards, setCards] = useState<ICard[]>([]);
   const addCard = (newCard: ICard) => {
     setCards([...cards, newCard]);
   };
+  const handleConfirmBtnClick = () => {
+    if (title && content) {
+      const newCard = {
+        id: uuid(),
+        title: title.value,
+        content: content.value,
+        tags: tags,
+        date: new Date(),
+      };
+      addCard(newCard);
+      closeModal();
+    }
+    if (!title || !content) {
+      //TODO: disable처리
+      alert("제목과 본문을 채워주세요.");
+    }
+  };
+
+  const confirm = {
+    title: "확인",
+    onClick: handleConfirmBtnClick,
+  };
+  const cancel = {
+    title: "취소",
+    onClick: closeModal,
+  };
+  const body = {
+    input: [title],
+    textarea: content,
+    tag: {
+      tags: tags,
+      hasTag: true,
+      setTags: setTags,
+    },
+  };
+
   return (
     <>
       <BaseHeader HeaderLogo="마이스페이스 👨‍💻" />
@@ -69,17 +106,15 @@ const MySpace = () => {
             <Card key={card.id} card={card} />
           ))}
         </CardBox>
-        {/* {isModalOpen && (
-          <Modal
-            title="새로운 설문지를 작성합니다."
-            subtitle="새로운 설문지를 작성하기 위한 설정입니다."
-            setIsModalOpen={setIsModalOpen}
-            form={<SurveyForm addCard={addCard} setIsModalOpen={openModal} />}
+        {isModalOpen && (
+          <Modalv2
+            type="SURVEY"
+            closeModal={closeModal}
+            confirm={confirm}
+            cancel={cancel}
+            body={body}
           />
-        )} */}
-        {/* {isModalOpen && (
-          <Modalv2 type="SURVEY" closeModal={closeModal}></Modalv2>
-        )} */}
+        )}
       </MySpaceContainer>
     </>
   );

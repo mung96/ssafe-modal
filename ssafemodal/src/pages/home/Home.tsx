@@ -28,6 +28,7 @@ const Home = () => {
     title: "확인",
     onClick: handleConfirmBtnClick,
   };
+  const body = {};
   return (
     <>
       <Header HeaderLogo="폼나는싸패" />
@@ -59,7 +60,12 @@ const Home = () => {
           />
         )} */}
         {isModalOpen && (
-          <Modalv2 type="LOGIN" closeModal={closeModal} confirm={confirm} />
+          <Modalv2
+            type="LOGIN"
+            closeModal={closeModal}
+            confirm={confirm}
+            body={body}
+          />
         )}
       </Container>
     </>
