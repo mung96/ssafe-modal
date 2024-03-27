@@ -30,8 +30,7 @@ export interface ICard {
 }
 
 const MySpace = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const {isOpen,openModal} = useModal();
+  const { isModalOpen, openModal, closeModal } = useModal();
   const handleClickWriteBtn = () => {
     // setIsModalOpen(true);
     openModal();
@@ -70,17 +69,17 @@ const MySpace = () => {
             <Card key={card.id} card={card} />
           ))}
         </CardBox>
-        {isModalOpen && (
+        {/* {isModalOpen && (
           <Modal
             title="새로운 설문지를 작성합니다."
             subtitle="새로운 설문지를 작성하기 위한 설정입니다."
             setIsModalOpen={setIsModalOpen}
-            form={
-              <SurveyForm addCard={addCard} setIsModalOpen={setIsModalOpen} />
-            }
+            form={<SurveyForm addCard={addCard} setIsModalOpen={openModal} />}
           />
+        )} */}
+        {isModalOpen && (
+          <Modalv2 type="SURVEY" closeModal={closeModal}></Modalv2>
         )}
-        {isOpen && <Modalv2 type="SURVEY" ></Modalv2>}
       </MySpaceContainer>
     </>
   );

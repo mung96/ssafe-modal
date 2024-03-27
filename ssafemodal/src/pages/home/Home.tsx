@@ -1,4 +1,4 @@
-import BaseHeader from "../../components/header/Header";
+import Header from "../../components/header/Header";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -10,18 +10,18 @@ import {
   SignupButton,
 } from "./Home.element";
 
-import { Modal } from "../../components/modals/Modal";
-import { LoginForm } from "../../components/forms/LoginForm";
+import { useModal } from "../../hooks/useModal";
+import { Modalv2 } from "../../components/modals/Modalv2";
 
 const Home = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isModalOpen, openModal, closeModal } = useModal();
   const handleClickLoginBtn = () => {
-    setIsModalOpen(true);
+    openModal();
   };
 
   return (
     <>
-      <BaseHeader HeaderLogo="폼나는싸패" />
+      <Header HeaderLogo="폼나는싸패" />
       <Container>
         <TextBoard>
           <SubTitle>데이터 수집을 위한 올인원 툴</SubTitle>
@@ -41,14 +41,15 @@ const Home = () => {
         <Link to="/mySpace">
           <SignupButton>Move to MySpace</SignupButton>
         </Link>
-        {isModalOpen && (
+        {/* {isModalOpen && (
           <Modal
             title={"닉네임을 입력하세요."}
             subtitle={"닉네임은 최소 4글자 이상이어야 합니다."}
-            setIsModalOpen={setIsModalOpen}
+            setIsModalOpen={closeModal}
             form={<LoginForm />}
           />
-        )}
+        )} */}
+        {isModalOpen && <Modalv2 type="LOGIN" closeModal={closeModal} />}
       </Container>
     </>
   );

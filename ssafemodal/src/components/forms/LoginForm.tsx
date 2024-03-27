@@ -4,12 +4,10 @@ import { CompleteButton, FormFooter } from "./LoginForm.element";
 import { useContext } from "react";
 import NicknameContext from "../../contexts/NicknameContext";
 
-
-
 export const LoginForm = () => {
   const navigate = useNavigate();
-  const nickname= useInput();
-  const {actions} = useContext(NicknameContext);
+  const nickname = useInput();
+  const { actions } = useContext(NicknameContext);
 
   const handleCompleteBtn = () => {
     navigate("/mySpace");
