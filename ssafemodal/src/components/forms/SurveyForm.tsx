@@ -11,7 +11,7 @@ import { useInput } from "../../hooks/useInput";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import uuid from "react-uuid";
 import { CompleteButton, CancelButton } from "./SurveyForm.element";
-import { CARD_COLORS } from "../../styles/palette";
+import { CARD_COLORS } from "../../palette";
 
 interface ISurveyForm {
   addCard: (card: ICard) => void;

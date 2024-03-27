@@ -1,13 +1,12 @@
-import { useInput } from "../../hooks/useInput";
 import * as M from "./Modal.element";
 import { MODAL_TEXT, ModalType } from "./ModalConstants";
 import { Tag, TagBox, TagInput } from "../forms/SurveyForm.element";
 import { ITag } from "../forms/SurveyForm";
 import { KeyboardEvent } from "react";
-import { CARD_COLORS } from "../../styles/palette";
+import { CARD_COLORS } from "../../palette";
 import { InputGroup } from "../forms/SurveyForm.element";
 
-interface Props {
+export interface IModal {
   type: ModalType;
   closeModal: () => void;
   confirm: { title: string; onClick: () => void; disabledCond: boolean };
@@ -36,7 +35,13 @@ interface Props {
   };
 }
 
-export const Modal = ({ type, closeModal, body, confirm, cancel }: Props) => {
+export const Modal: React.FC<IModal> = ({
+  type,
+  closeModal,
+  body,
+  confirm,
+  cancel,
+}) => {
   const modalType = MODAL_TEXT[type];
   const handleTagAdd = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
