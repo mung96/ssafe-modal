@@ -14,15 +14,22 @@ interface Props {
   cancel?: { title: string; onClick: () => void };
   body: {
     input?: {
-      value: string;
-      onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+      name: string;
+      field: {
+        value: string;
+        onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+      };
+      label?: string;
     }[];
     textarea?: {
-      value: string;
-      onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+      name: string;
+      field: {
+        value: string;
+        onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+      };
+      label?: string;
     };
     tag?: {
-      hasTag?: boolean;
       tags?: ITag[];
       setTags: React.Dispatch<React.SetStateAction<ITag[]>>;
     };
@@ -58,27 +65,31 @@ export const Modal = ({ type, closeModal, body, confirm, cancel }: Props) => {
         </M.ModalHeader>
         <M.ModalBody>
           {body.input &&
-            body.input.map((field) => (
+            body.input.map((item) => (
               <InputGroup>
-                <label htmlFor={field.value}>설문지 이름을 입력하세요.</label>
+                {item.label && <label htmlFor={item.name}>{item.label}</label>}
                 <input
-                  id={field.value}
-                  name={field.value}
-                  onChange={field.onChange}
+                  id={item.name}
+                  name={item.name}
+                  onChange={item.field.onChange}
                 />
               </InputGroup>
             ))}
           {body.textarea && (
             <InputGroup>
-              <label htmlFor="content">설문지 내용을 입력하세요.</label>
+              {body.textarea.label && (
+                <label htmlFor={body.textarea.name}>
+                  {body.textarea.label}
+                </label>
+              )}
               <textarea
-                id="content"
-                name="content"
-                onChange={body.textarea.onChange}
+                id={body.textarea.name}
+                name={body.textarea.name}
+                onChange={body.textarea.field.onChange}
               />
             </InputGroup>
           )}
-          {body.tag?.hasTag && (
+          {body.tag && (
             <TagBox>
               {body.tag?.tags?.map((tag: ITag, idx: number) => (
                 <Tag key={idx} color={tag.color}>

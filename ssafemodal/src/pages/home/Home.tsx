@@ -30,7 +30,12 @@ const Home = () => {
     onClick: handleConfirmBtnClick,
   };
   const body = {
-    input: [nickname],
+    input: [
+      {
+        name: "nickname",
+        field: nickname,
+      },
+    ],
   };
   return (
     <>

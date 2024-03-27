@@ -67,11 +67,20 @@ const MySpace = () => {
     onClick: closeModal,
   };
   const body = {
-    input: [title],
-    textarea: content,
+    input: [
+      {
+        name: "title",
+        field: title,
+        label: "설문지 이름을 입력하세요.",
+      },
+    ],
+    textarea: {
+      name: "content",
+      field: content,
+      label: "설문지 내용을 입력하세요.",
+    },
     tag: {
       tags: tags,
-      hasTag: true,
       setTags: setTags,
     },
   };
