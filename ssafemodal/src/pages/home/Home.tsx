@@ -13,15 +13,19 @@ import {
 import { useModal } from "../../hooks/useModal";
 import { Modal } from "../../components/modals/Modal";
 import { useInput } from "../../hooks/useInput";
+import { useContext } from "react";
+import NicknameContext from "../../contexts/NicknameContext";
 
 const Home = () => {
   const { isModalOpen, openModal, closeModal } = useModal();
+  const { actions } = useContext(NicknameContext);
   const nickname = useInput();
   const handleClickLoginBtn = () => {
     openModal();
   };
   const navigate = useNavigate();
   const handleConfirmBtnClick = () => {
+    actions.setNickname(nickname.value[0]);
     navigate("/mySpace");
   };
 
