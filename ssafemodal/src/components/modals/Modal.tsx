@@ -10,7 +10,7 @@ import { InputGroup } from "../forms/SurveyForm.element";
 interface Props {
   type: ModalType;
   closeModal: () => void;
-  confirm: { title: string; onClick: () => void };
+  confirm: { title: string; onClick: () => void; disabledCond: boolean };
   cancel?: { title: string; onClick: () => void };
   body: {
     input?: {
@@ -108,7 +108,7 @@ export const Modal = ({ type, closeModal, body, confirm, cancel }: Props) => {
           )}
           <M.CompleteButton
             onClick={confirm.onClick}
-            // disabled={nickname.value.length < 4}
+            disabled={confirm.disabledCond}
           >
             {confirm.title}
           </M.CompleteButton>

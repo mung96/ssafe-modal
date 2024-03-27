@@ -32,6 +32,7 @@ const Home = () => {
   const confirm = {
     title: "확인",
     onClick: handleConfirmBtnClick,
+    disabledCond: nickname.value.length < 4,
   };
   const body = {
     input: [

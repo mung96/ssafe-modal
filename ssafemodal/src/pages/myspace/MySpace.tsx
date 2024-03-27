@@ -52,15 +52,12 @@ const MySpace = () => {
       addCard(newCard);
       closeModal();
     }
-    if (!title || !content) {
-      //TODO: disable처리
-      alert("제목과 본문을 채워주세요.");
-    }
   };
 
   const confirm = {
     title: "확인",
     onClick: handleConfirmBtnClick,
+    disabledCond: !title.value || !content.value,
   };
   const cancel = {
     title: "취소",
