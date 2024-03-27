@@ -38,7 +38,6 @@ interface Props {
 
 export const Modal = ({ type, closeModal, body, confirm, cancel }: Props) => {
   const modalType = MODAL_TEXT[type];
-  //   const nickname = useInput();
   const handleTagAdd = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       const newTag = {
@@ -56,6 +55,7 @@ export const Modal = ({ type, closeModal, body, confirm, cancel }: Props) => {
       <M.ModalBackground
         onClick={() => {
           closeModal();
+          body?.tag?.setTags([]);
         }}
       />
       <M.ModalBlock>
@@ -102,12 +102,20 @@ export const Modal = ({ type, closeModal, body, confirm, cancel }: Props) => {
         </M.ModalBody>
         <M.ModalFooter>
           {cancel && (
-            <M.CancelButton onClick={cancel.onClick}>
+            <M.CancelButton
+              onClick={() => {
+                cancel.onClick();
+                body?.tag?.setTags([]);
+              }}
+            >
               {cancel.title}
             </M.CancelButton>
           )}
           <M.CompleteButton
-            onClick={confirm.onClick}
+            onClick={() => {
+              confirm.onClick();
+              body?.tag?.setTags([]);
+            }}
             disabled={confirm.disabledCond}
           >
             {confirm.title}

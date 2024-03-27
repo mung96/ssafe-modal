@@ -108,7 +108,7 @@ const MySpace = () => {
             const modifiedCard = { ...card, date: new Date(card.date) };
             return <Card key={card.id} card={modifiedCard} />;
           })}
-          {cards.map((card, idx) => (
+          {cards.map((card) => (
             <Card key={card.id} card={card} />
           ))}
         </CardBox>

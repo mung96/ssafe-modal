@@ -27,8 +27,9 @@ export const Card: React.FC<ICard> = ({ card }) => {
           <b>예상소요시간</b>: 30분
         </C.QuestionInfo>
         <C.CardTagBox>
-          {card.tags.map((tag: ITag, idx: number) => (
-            <Tag key={idx} color={tag.color}>
+          {card.tags.map((tag: ITag) => (
+            //TODO: tag.value말고 다른거 넣어야함.
+            <Tag key={tag.value} color={tag.color}>
               {tag.value}
             </Tag>
           ))}
