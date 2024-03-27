@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import MySpace from "./pages/myspace/MySpace";
-import "../src/styles/global.css";
 import { NicknameProvider } from "./contexts/NicknameContext";
 
 function App() {
