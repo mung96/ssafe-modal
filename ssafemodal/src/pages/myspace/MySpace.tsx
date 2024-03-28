@@ -13,13 +13,16 @@ import {
 import { Card } from "../../components/card/Card";
 import { BiSolidSearch } from "react-icons/bi";
 import { IoCaretDownSharp } from "react-icons/io5";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { ITag } from "../../components/forms/SurveyForm";
 import dummy from "../../dummy.json";
 import { useModal } from "../../hooks/useModal";
 import { Modal } from "../../components/modals/Modal";
 import uuid from "react-uuid";
 import { useInput } from "../../hooks/useInput";
+import { ModalsStateContext } from "../../contexts/ModalContext";
+import { Modals } from "../../components/modals/Modals";
+
 export interface ICard {
   id: string;
   title: string;
@@ -29,13 +32,12 @@ export interface ICard {
 }
 
 const MySpace = () => {
-  const { isModalOpen, openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModal();
+  const a = useContext(ModalsStateContext);
   const title = useInput();
   const content = useInput();
   const [tags, setTags] = useState<ITag[]>([]);
-  const handleClickWriteBtn = () => {
-    openModal();
-  };
+
   const [cards, setCards] = useState<ICard[]>([]);
   const addCard = (newCard: ICard) => {
     setCards([...cards, newCard]);
@@ -50,7 +52,7 @@ const MySpace = () => {
         date: new Date(),
       };
       addCard(newCard);
-      closeModal();
+      closeModal(Modal);
     }
   };
 
@@ -81,7 +83,16 @@ const MySpace = () => {
       setTags: setTags,
     },
   };
-
+  const handleClickWriteBtn = () => {
+    openModal(Modal, {
+      type: "SURVEY",
+      closeModal: { closeModal },
+      confirm: { confirm },
+      cancel: { cancel },
+      body: { body },
+    });
+    console.log(a);
+  };
   return (
     <>
       <BaseHeader HeaderLogo="마이스페이스 👨‍💻" />
@@ -112,16 +123,8 @@ const MySpace = () => {
             <Card key={card.id} card={card} />
           ))}
         </CardBox>
-        {isModalOpen && (
-          <Modal
-            type="SURVEY"
-            closeModal={closeModal}
-            confirm={confirm}
-            cancel={cancel}
-            body={body}
-          />
-        )}
       </MySpaceContainer>
+      <Modals />
     </>
   );
 };

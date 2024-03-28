@@ -59,7 +59,6 @@ export const Modal: React.FC<IModal> = ({
     <>
       <M.ModalBackground
         onClick={() => {
-          closeModal();
           body?.tag?.setTags([]);
         }}
       />
